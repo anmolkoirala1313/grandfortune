@@ -21,7 +21,7 @@ class ServiceController extends BackendBaseController
     protected string $view_path     = 'backend.service.';
     protected string $page         = 'Service';
     protected string $folder_name   = 'service';
-    protected string $page_title, $page_method, $image_path, $file_path, $thumb_height, $thumb_width;
+    protected string $page_title, $page_method, $image_path, $file_path;
     protected object $model;
 
 

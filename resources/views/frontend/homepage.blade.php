@@ -4,313 +4,284 @@
 
 @endsection
 @section('content')
-
-
     <!-- slider-area -->
     <section class="slider-area">
         <div class="slider-active">
-            <div class="single-slider slider-bg" data-background="assets/img/banner/banner_bg.jpg">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="slider-content">
-                                <span class="sub-title" data-animation="fadeInUp" data-delay=".2s">We Are Expert In This Field</span>
-                                <h2 class="title" data-animation="fadeInUp" data-delay=".4s">Grow Your Business More Efficiently</h2>
-                                <p data-animation="fadeInUp" data-delay=".6s">Agilos helps you to convert your data into a strategic asset and get top-notch business insights.</p>
-                                <a href="services.html" class="btn" data-animation="fadeInUp" data-delay=".8s">Our Services</a>
+            @foreach($data['sliders']  as $index=>$slider)
+                <div class="single-slider slider-bg" data-background="{{ asset(imagePath($slider->image)) }}">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="slider-content">
+                                    <span class="sub-title" data-animation="fadeInUp" data-delay=".2s">{{ $slider->subtitle ?? '' }}</span>
+                                    <h2 class="title" data-animation="fadeInUp" data-delay=".4s">{{ $slider->title ?? '' }}</h2>
+                                    @if($slider->link)
+                                        <a href="{{ $slider->link ?? '' }}" class="btn" data-animation="fadeInUp" data-delay=".8s">{{ $slider->link ?? 'View More' }}</a>
+                                    @endif
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="slider-shape">
-                    <img src="assets/img/banner/banner_shape.png" alt="" data-animation="zoomIn" data-delay=".8s">
-                </div>
-            </div>
-            <div class="single-slider slider-bg" data-background="assets/img/banner/banner_bg02.jpg">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="slider-content">
-                                <span class="sub-title" data-animation="fadeInUp" data-delay=".2s">We Are Expert In This Field</span>
-                                <h2 class="title" data-animation="fadeInUp" data-delay=".4s">Grow Your Business More Efficiently</h2>
-                                <p data-animation="fadeInUp" data-delay=".6s">Agilos helps you to convert your data into a strategic asset and get top-notch business insights.</p>
-                                <a href="services.html" class="btn" data-animation="fadeInUp" data-delay=".8s">Our Services</a>
-                            </div>
-                        </div>
+                    <div class="slider-shape">
+                        <img class="lazy" data-src="{{ asset('assets/frontend/img/banner/banner_shape.png') }}" alt="" data-animation="zoomIn" data-delay=".8s">
                     </div>
                 </div>
-                <div class="slider-shape">
-                    <img src="assets/img/banner/banner_shape.png" alt="" data-animation="zoomIn" data-delay=".8s">
-                </div>
-            </div>
+            @endforeach
         </div>
     </section>
     <!-- slider-area-end -->
 
-    <!-- about-area -->
-    <section class="about-area about-bg" data-background="assets/img/bg/about_bg.jpg">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-5">
-                    <div class="about-img-wrap">
-                        <img src="assets/img/images/about_img01.png" alt="" class="main-img">
-                        <img src="assets/img/images/about_img_shape01.png" alt="">
-                        <img src="assets/img/images/about_img_shape02.png" alt="">
-                    </div>
-                </div>
-                <div class="col-lg-7">
-                    <div class="about-content">
-                        <div class="section-title mb-25 tg-heading-subheading animation-style2">
-                            <span class="sub-title tg-element-title">What We are Doing</span>
-                            <h2 class="title tg-element-title">Changing The Way To Do Best Business Solutions</h2>
+    @if($data['homepage']->mission)
+        <section class="services-area-four">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                        <div class="services-item-four">
+                            <div class="services-icon-four">
+                                <i class="flaticon-mission"></i>
+                            </div>
+                            <div class="services-content-four">
+                                <h2 class="title"><a>Mission</a></h2>
+                                <p>{{ $data['homepage']->mission ?? '' }}</p>
+                            </div>
                         </div>
-                        <p>Borem ipsum dolor sit amet, consectetur adipiscing elita floraipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temporincididunt ut labore et dolore magna aliqua Quis suspendisse ultri ces gravida.</p>
+                    </div>
+                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                        <div class="services-item-four">
+                            <div class="services-icon-four">
+                                <i class="flaticon-business-presentation"></i>
+                            </div>
+                            <div class="services-content-four">
+                                <h2 class="title"><a>Vision</a></h2>
+                                <p>{{ $data['homepage']->vision ?? '' }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                        <div class="services-item-four">
+                            <div class="services-icon-four">
+                                <i class="flaticon-heart"></i>
+                            </div>
+                            <div class="services-content-four">
+                                <h2 class="title"><a>Value</a></h2>
+                                <p>{{ $data['homepage']->value ?? '' }}</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-    <!-- about-area-end -->
+        </section>
+    @endif
 
-    <!-- features-area -->
-    <section class="features-area">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-4 col-md-6">
-                    <div class="features-item">
-                        <div class="features-content">
-                            <div class="content-top">
-                                <div class="icon">
-                                    <i class="flaticon-puzzle-piece"></i>
-                                </div>
-                                <h2 class="title">Quality Services</h2>
-                            </div>
-                            <p>eiusmod temporincididunt ut labore magna aliqua Quisery.</p>
-                        </div>
+    @if($data['homepage']->description)
+        <section class="about-area-six">
+            <div class="container">
+                <div class="row align-items-center justify-content-center">
+                    <div class="col-lg-6 col-md-10">
+                        @if($data['homepage']->image_position == 'left')
+                            @include($module.'partials.welcome_image')
+                        @else
+                            @include($module.'partials.welcome_description')
+                        @endif
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="features-item">
-                        <div class="features-content">
-                            <div class="content-top">
-                                <div class="icon">
-                                    <i class="flaticon-inspiration"></i>
-                                </div>
-                                <h2 class="title">Innovation Ideas</h2>
-                            </div>
-                            <p>eiusmod temporincididunt ut labore magna aliqua Quisery.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="features-item">
-                        <div class="features-content">
-                            <div class="content-top">
-                                <div class="icon">
-                                    <i class="flaticon-profit"></i>
-                                </div>
-                                <h2 class="title">Business Growth</h2>
-                            </div>
-                            <p>eiusmod temporincididunt ut labore magna aliqua Quisery.</p>
-                        </div>
+                    <div class="col-lg-6">
+                        @if($data['homepage']->image_position == 'right')
+                            @include($module.'partials.welcome_image')
+                        @else
+                            @include($module.'partials.welcome_description')
+                        @endif
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-    <!-- features-area-end -->
-
-    <!-- about-area -->
-    <section class="about-area-two pt-110 pb-120">
-        <div class="container">
-            <div class="row align-items-center justify-content-center">
-                <div class="col-lg-7 col-md-9 order-0 order-lg-2">
-                    <div class="about-img-two">
-                        <div class="main-img">
-                            <img src="assets/img/images/about_img02.jpg" alt="">
-                            <a href="https://www.youtube.com/watch?v=6mkoGSqTqFI" class="play-btn popup-video"><i class="fas fa-play"></i></a>
-                        </div>
-                        <img src="assets/img/images/about_img03.jpg" alt="">
-                    </div>
-                </div>
-                <div class="col-lg-5">
-                    <div class="about-content-two">
-                        <div class="section-title mb-30 tg-heading-subheading animation-style2">
-                            <span class="sub-title tg-element-title">Who We are</span>
-                            <h2 class="title tg-element-title">Building Your Own Startup Has Been Simpler</h2>
-                        </div>
-                        <p>Morem ipsum dolor sit amet, consectetur adipiscing elita florai psum dolor sit amet, consecteture.Borem ipsum dolor sit amet, consectetur adipiscing elita florai psum.</p>
-                        <div class="about-list">
-                            <ul class="list-wrap">
-                                <li><img src="assets/img/icons/check_icon.svg" alt="">100% Better results</li>
-                                <li><img src="assets/img/icons/check_icon.svg" alt="">Valuable Ideas</li>
-                                <li><img src="assets/img/icons/check_icon.svg" alt="">Budget Friendly Theme</li>
-                                <li><img src="assets/img/icons/check_icon.svg" alt="">Happy Customers</li>
-                            </ul>
-                        </div>
-                        <div class="success-wrap">
-                            <ul class="list-wrap">
-                                <li>
-                                    <h2 class="count">+150,000</h2>
-                                    <p>Total revenue in 1 year</p>
-                                </li>
-                                <li>
-                                    <h2 class="count">90%</h2>
-                                    <p>Increase in sales</p>
-                                </li>
-                            </ul>
-                        </div>
-                        <a href="about.html" class="btn transparent-btn">Get Started With Us</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="about-shape-wrap">
-            <img src="assets/img/images/about_shape01.png" alt="">
-            <img src="assets/img/images/about_shape02.png" alt="">
-        </div>
-    </section>
-    <!-- about-area-end -->
-
-    <!-- services-area -->
-    <section class="services-area services-bg" data-background="assets/img/bg/services_bg.jpg">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-xl-6 col-lg-8">
-                    <div class="section-title white-title text-center mb-50 tg-heading-subheading animation-style2">
-                        <span class="sub-title tg-element-title">Our Dedicated Services</span>
-                        <h2 class="title tg-element-title">Spotlight Some Most <br> Important Features We Have</h2>
-                        <p>Borem ipsum dolor sit amet consectetur adipiscing elita</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row services-active">
-                <div class="col-lg-4">
-                    <div class="services-item">
-                        <div class="services-content">
-                            <div class="content-top">
-                                <div class="icon">
-                                    <i class="flaticon-briefcase"></i>
-                                </div>
-                                <h2 class="title">Business Analysis</h2>
-                            </div>
-                            <div class="services-thumb">
-                                <img src="assets/img/services/services_img01.jpg" alt="">
-                                <a href="services-details.html" class="btn transparent-btn">Our Services</a>
-                            </div>
-                            <ul class="list-wrap">
-                                <li>seusmeyd tempose atidim area</li>
-                                <li>aliquam duhipsum is simply free</li>
-                                <li>Get Life Time Access</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="services-item">
-                        <div class="services-content">
-                            <div class="content-top">
-                                <div class="icon">
-                                    <i class="flaticon-taxes"></i>
-                                </div>
-                                <h2 class="title">Tax Strategy</h2>
-                            </div>
-                            <div class="services-thumb">
-                                <img src="assets/img/services/services_img02.jpg" alt="">
-                                <a href="services-details.html" class="btn transparent-btn">Our Services</a>
-                            </div>
-                            <ul class="list-wrap">
-                                <li>seusmeyd tempose atidim area</li>
-                                <li>aliquam duhipsum is simply free</li>
-                                <li>Get Life Time Access</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="services-item">
-                        <div class="services-content">
-                            <div class="content-top">
-                                <div class="icon">
-                                    <i class="flaticon-money"></i>
-                                </div>
-                                <h2 class="title">Financial Advice</h2>
-                            </div>
-                            <div class="services-thumb">
-                                <img src="assets/img/services/services_img03.jpg" alt="">
-                                <a href="services-details.html" class="btn transparent-btn">Our Services</a>
-                            </div>
-                            <ul class="list-wrap">
-                                <li>seusmeyd tempose atidim area</li>
-                                <li>aliquam duhipsum is simply free</li>
-                                <li>Get Life Time Access</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="services-item">
-                        <div class="services-content">
-                            <div class="content-top">
-                                <div class="icon">
-                                    <i class="flaticon-taxes"></i>
-                                </div>
-                                <h2 class="title">Tax Strategy</h2>
-                            </div>
-                            <div class="services-thumb">
-                                <img src="assets/img/services/services_img02.jpg" alt="">
-                                <a href="services-details.html" class="btn transparent-btn">Our Services</a>
-                            </div>
-                            <ul class="list-wrap">
-                                <li>seusmeyd tempose atidim area</li>
-                                <li>aliquam duhipsum is simply free</li>
-                                <li>Get Life Time Access</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- services-area-end -->
+        </section>
+    @endif
 
     <!-- counter-area -->
-    <section class="counter-area counter-bg" data-background="assets/img/bg/counter_bg.jpg">
+    <section class="counter-area-three pb-60">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="counter-item">
-                        <h2 class="count"><span class="odometer" data-count="95"></span>%</h2>
-                        <p>Success Rate</p>
+                <div class="col-xl-3 col-lg-4 col-sm-6">
+                    <div class="counter-item-three">
+                        <div class="counter-icon">
+                            <i class="flaticon-folder-1"></i>
+                        </div>
+                        <div class="counter-content">
+                            <h2 class="count"><span class="odometer" data-count="{{ $data['homepage']->project_completed ?? '600' }}"></span></h2>
+                            <p>Projects Done</p>
+                        </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="counter-item">
-                        <h2 class="count"><span class="odometer" data-count="55"></span>K</h2>
-                        <p>Complete Projects</p>
+
+                <div class="col-xl-3 col-lg-4 col-sm-6">
+                    <div class="counter-item-three">
+                        <div class="counter-icon">
+                            <i class="flaticon-rating"></i>
+                        </div>
+                        <div class="counter-content">
+                            <h2 class="count"><span class="odometer" data-count="{{ $data['homepage']->happy_clients ?? '560' }}"></span></h2>
+                            <p>Happy Clients</p>
+                        </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="counter-item">
-                        <h2 class="count"><span class="odometer" data-count="25"></span>K</h2>
-                        <p>Satisfied Clients</p>
+
+                <div class="col-xl-3 col-lg-4 col-sm-6">
+                    <div class="counter-item-three">
+                        <div class="counter-icon">
+                            <i class="flaticon-trophy"></i>
+                        </div>
+                        <div class="counter-content">
+                            <h2 class="count"><span class="odometer" data-count="{{ $data['homepage']->visa_approved ?? '785' }}"></span></h2>
+                            <p>Visa Approved</p>
+                        </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="counter-item">
-                        <h2 class="count"><span class="odometer" data-count="12"></span>K</h2>
-                        <p>Trade In The World</p>
+
+                <div class="col-xl-3 col-lg-4 col-sm-6">
+                    <div class="counter-item-three">
+                        <div class="counter-icon">
+                            <i class="flaticon-round-table"></i>
+                        </div>
+                        <div class="counter-content">
+                            <h2 class="count"><span class="odometer" data-count="{{ $data['homepage']->success_stories ?? '650' }}"></span></h2>
+                            <p>Success Stories</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="counter-shape-wrap">
-            <img src="assets/img/images/counter_shape01.png" alt="" class="animationFramesOne">
-            <img src="assets/img/images/counter_shape02.png" alt="" class="animationFramesOne">
         </div>
     </section>
     <!-- counter-area-end -->
 
+    @if(count($data['jobs']) > 1)
+        <section class="project-area-four" data-background="{{ asset('assets/frontend/img/bg/services_bg02.jpg') }}">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 col-md-8 mb-2">
+                        <div class="section-title section-title-three mb-15 tg-heading-subheading animation-style1">
+                            <span class="sub-title tg-element-title">Current Demands</span>
+                            <h2 class="title tg-element-title">We Can Inspire And Offer <br/>
+                                Different Jobs</h2>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-4">
+                        <div class="view-all-btn text-end mb-30">
+                            <a href="{{ route('frontend.job.index') }}" class="btn transparent-btn">View All</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    @foreach($data['jobs'] as $index=>$job)
+                        <div class="col-lg-4 col-md-6 mt-2">
+                            <div class="project-item">
+                                <div class="project-thumb">
+                                    <a href="{{ route('frontend.job.show', $job->slug) }}">
+                                        <img class="lazy" data-src="{{ asset(imagePath($job->image)) }}" alt="">
+                                    </a>
+                                </div>
+                                <div class="project-content">
+                                    <a href="{{ route('frontend.job.show', $job->slug) }}" class="tag">
+                                        @if(@$job->end_date >= date('Y-m-d'))
+                                            {{date('M j, Y',strtotime(@$job->start_date))}} - {{date('M j, Y',strtotime(@$job->end_date))}}
+                                        @else
+                                            Expired
+                                        @endif
+                                    </a>
+                                    <h2 class="title"><a href="{{ route('frontend.job.show', $job->slug) }}">{{ $job->title ?? '' }}</a></h2>
+                                    <a href="{{ route('frontend.job.show', $job->slug) }}" class="link-arrow"><i class="flaticon-right-arrow"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        </section>
+    @endif
+
+    @if($data['homepage']->action_title)
+        <section class="cta-area-four">
+            <div class="container">
+                <div class="cta-inner-wrap-two" data-background="{{ asset('assets/frontend/img/bg/cta_bg02.jpg') }}">
+                    <div class="row align-items-center">
+                        <div class="col-lg-9">
+                            <div class="cta-content">
+                                <div class="cta-info-wrap">
+                                    <div class="icon">
+                                        <i class="flaticon-phone-call"></i>
+                                    </div>
+                                    <div class="content">
+                                        <span>Call For More Info</span>
+                                        <a href="tel:{{$setting_data->phone ?? $setting_data->mobile ?? ''}}">{{$setting_data->phone ?? $setting_data->mobile ?? ''}}</a>
+                                    </div>
+                                </div>
+                                <h2 class="title">{{ $data['homepage']->action_title ?? '' }}</h2>
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="cta-btn text-end">
+                                <a href="{{ $data['homepage']->action_link ?? '/contact-us' }}" class="btn btn-three">{{ $data['homepage']->action_button ?? 'Start Here' }}</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    @endif
+
+    @if(count($data['services']) > 0)
+        <section class="services-area services-bg">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-xl-6 col-lg-8">
+                        <div class="section-title text-center mb-50 tg-heading-subheading animation-style2">
+                            <span class="sub-title tg-element-title">Our Dedicated Categories</span>
+                            <h2 class="title tg-element-title">Spotlight On Some Of <br> Most Important Category</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    @foreach($data['services'] as $index=>$service)
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-8">
+                        <div class="services-item-two">
+                            <div class="services-thumb-two">
+                                <img class="lazy" data-src="{{ asset(thumbnailImagePath($service->image)) }}" alt="">
+                                <div class="item-shape">
+                                    <img class="lazy" data-src="{{ asset('assets/frontend/img/services/services_item_shape.png') }}" alt="">
+                                </div>
+                            </div>
+                            <div class="services-content-two">
+                                <div class="icon">
+                                    <i class="flaticon-layers"></i>
+                                </div>
+                                <h2 class="title"><a href="{{ route('frontend.service.show', $service->key) }}">{{ $service->title ?? '' }}</a></h2>
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach
+                </div>
+            </div>
+        </section>
+    @endif
+
+    @if(count( $data['clients']) > 0)
+        <section class="brand-aera-two">
+            <div class="container">
+                <div class="brand-item-wrap">
+                    <h6 class="title">Trusted by many companies around the world</h6>
+                    <div class="row brand-active">
+                        @foreach($data['clients'] as $index=>$client)
+                            <div class="col-lg-12">
+                                <div class="brand-item">
+                                    <a href="{{ $client->link ?? '#' }}" target="{{ ($client->link !== null) ? '_blank':'' }}">
+                                        <img src="{{ asset(imagePath($client->image)) }}" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+        </section>
+    @endif
     <!-- project-area -->
     <section class="project-area project-bg" data-background="assets/img/bg/project_bg.jpg">
         <div class="container">
