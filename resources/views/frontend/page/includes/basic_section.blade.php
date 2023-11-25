@@ -1,38 +1,25 @@
-
-<section class="about-three" style="    padding: 120px 0 0px;">
-    <div class="about-three__shape-2 float-bob-y">
-        <img class="lazy" data-src="{{asset('assets/frontend/images/shapes/about-three-shape-2.png')}}" alt="">
-    </div>
+<section class="about-area-eight pt-120 pb-120" data-background="{{ asset('assets/frontend/img/bg/about_bg.jpg') }}">
     <div class="container">
-        <div class="row">
-            <div class="col-xl-6">
-                <div class="about-three__left">
-                    <div class="about-three__img wow slideInLeft" data-wow-delay="100ms"
-                         data-wow-duration="2500ms">
-                        <img class="lazy" data-src="{{ asset(imagePath($element->first()->image)) }}" alt="">
-                        <div class="about-three__shape-1 zoominout">
-                            <img class="lazy" data-src="{{ asset('assets/frontend/images/shapes/about-three-shape-1.png') }}" alt="">
-                        </div>
-                        <div class="about-three__shape-2 float-bob-y">
-                            <img class="lazy" data-src="{{ asset('assets/frontend/images/shapes/about-three-shape-2.png') }}" alt="">
-                        </div>
-                    </div>
+        <div class="row align-items-center justify-content-center">
+            <div class="col-lg-6 col-md-9">
+                <div class="about-img-eight">
+                    <img class="lazy" data-src="{{ asset(imagePath($element->first()->image)) }}" alt="">
                 </div>
             </div>
-            <div class="col-xl-6">
-                <div class="about-three__right">
-                    <div class="section-title-three text-left">
-                        <div class="section-title-three__tagline-box">
-                            <p class="section-title-three__tagline">{{ $element->first()->subtitle ?? '' }}</p>
-                        </div>
-                        <h2 class="section-title-three__title">{{ $element->first()->title ?? '' }}</h2>
+            <div class="col-lg-6">
+                <div class="about-content-eight">
+                    <div class="section-title-two mb-10">
+                        <span class="sub-title">{{ $element->first()->subtitle ?? '' }}</span>
+                        <h2 class="title">{{ $element->first()->title ?? '' }}</h2>
                     </div>
-                    <div class="about-three__text-2 text-align-justify custom-description">
+                    <p class="text-align-justify custom-description">
                         {!! $element->first()->description ?? '' !!}
-                    </div>
+                    </p>
                     @if($element->first()->button_link)
-                        <div class="about-two__btn-box">
-                            <a href="{{$element->first()->button_link}}" class="about-one__btn thm-btn">  {{ $element->first()->button ?? 'Reach Out' }}</a>
+                        <div class="about-content-bottom">
+                            <div class="services-btn">
+                                <a href="{{$element->first()->button_link}}" class="btn">{{ $element->first()->button ?? 'Reach Out' }}</a>
+                            </div>
                         </div>
                     @endif
                 </div>

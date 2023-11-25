@@ -178,7 +178,7 @@
                                 <a href="/"><img src="{{ $setting_data->logo ?  asset(imagePath($setting_data->logo)) : asset(imagePath($setting_data->logo_white))}}" style="max-width: 355px;" alt=""></a>
                             </div>
                             <div class="mobile-search">
-                                {!! Form::open(['route' => $base_route.'job.search', 'method'=>'GET']) !!}
+                                {!! Form::open(['route' => $module.'job.search', 'method'=>'GET']) !!}
                                     <input type="text" name="for" id="search" placeholder="Search jobs...">
                                     <button><i class="flaticon-search"></i></button>
                                 {!! Form::close() !!}
@@ -226,7 +226,7 @@
                     <div class="col-12">
                         <h2 class="title">... Search Here ...</h2>
                         <div class="search-form">
-                            {!! Form::open(['route' => $base_route.'job.search', 'method'=>'GET']) !!}
+                            {!! Form::open(['route' => $module.'job.search', 'method'=>'GET']) !!}
                                 <input type="text" name="for" placeholder="Type Jobs keywords here..">
                                 <button class="search-btn"><i class="fas fa-search"></i></button>
                             {!! Form::close() !!}

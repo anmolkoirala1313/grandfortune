@@ -9,7 +9,7 @@
 </style>
 @section('content')
 
-    @include($module.'includes.breadcrumb',['breadcrumb_image'=> 'background_action.jpeg', 'page_image'=> $data['row']->image])
+    @include($module.'includes.breadcrumb',['breadcrumb_image'=> 'breadcrumb_bg.jpg', 'page_image'=> $data['row']->image])
 
     @foreach($data['section_elements'] as $index=>$element)
         @if($index == 'basic_section' && count($element)>0)
@@ -24,21 +24,21 @@
         @if($index == 'map_and_description' && count($element)>0)
             @include($base_route.'includes.map_and_description')
         @endif
-        @if($index == 'flash_card' && count($element)>0)
-            @include($base_route.'includes.flash_card')
-        @endif
-        @if($index == 'gallery')
-            @include($base_route.'includes.gallery')
-        @endif
-        @if($index == 'faq' && count($element)>0)
-            @include($base_route.'includes.faq')
-        @endif
-        @if($index == 'header_description' && count($element)>0)
-            @include($base_route.'includes.header_description')
-        @endif
-        @if($index == 'slider_list' && count($element)>0)
-            @include($base_route.'includes.slider_list')
-        @endif
+{{--        @if($index == 'flash_card' && count($element)>0)--}}
+{{--            @include($base_route.'includes.flash_card')--}}
+{{--        @endif--}}
+{{--        @if($index == 'gallery')--}}
+{{--            @include($base_route.'includes.gallery')--}}
+{{--        @endif--}}
+{{--        @if($index == 'faq' && count($element)>0)--}}
+{{--            @include($base_route.'includes.faq')--}}
+{{--        @endif--}}
+{{--        @if($index == 'header_description' && count($element)>0)--}}
+{{--            @include($base_route.'includes.header_description')--}}
+{{--        @endif--}}
+{{--        @if($index == 'slider_list' && count($element)>0)--}}
+{{--            @include($base_route.'includes.slider_list')--}}
+{{--        @endif--}}
     @endforeach
 @endsection
 @section('js')
