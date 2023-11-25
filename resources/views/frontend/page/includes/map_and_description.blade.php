@@ -3,7 +3,7 @@
         <div class="row align-items-center justify-content-center">
             <div class="col-lg-5 col-md-9 order-0 order-lg-1">
                 <div class="about-content-two">
-                    <div class="section-title mb-30 tg-heading-subheading animation-style2">
+                    <div class="section-title mb-10 tg-heading-subheading animation-style2">
                         <span class="sub-title tg-element-title">{{ $element->first()->subtitle ?? '' }}</span>
                         <h2 class="title tg-element-title">{{ $element->first()->title ?? '' }}</h2>
                     </div>

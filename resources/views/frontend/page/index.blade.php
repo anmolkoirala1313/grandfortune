@@ -3,8 +3,22 @@
 <link rel="stylesheet" href="{{ asset('assets/frontend/css/magnific-popup.css') }}" />
 <style>
     .image-dimension{
-        height: 270px;
+        height: 400px;
         object-fit: cover;
+        transform: scale(1);
+        transition: .3s linear;
+    }
+    .mfp-container {
+        max-width: 900px;
+        max-height: 900px;
+        margin: 0 auto;
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%);
+    }
+    .mfp-figure img {
+        max-width: 100%;
+        height: auto;
     }
 </style>
 @section('content')
@@ -27,9 +41,9 @@
 {{--        @if($index == 'flash_card' && count($element)>0)--}}
 {{--            @include($base_route.'includes.flash_card')--}}
 {{--        @endif--}}
-{{--        @if($index == 'gallery')--}}
-{{--            @include($base_route.'includes.gallery')--}}
-{{--        @endif--}}
+        @if($index == 'gallery')
+            @include($base_route.'includes.gallery')
+        @endif
 {{--        @if($index == 'faq' && count($element)>0)--}}
 {{--            @include($base_route.'includes.faq')--}}
 {{--        @endif--}}
@@ -49,6 +63,24 @@
             if(selector>0){
                 $('.custom-description').find('table').addClass('table table-bordered table-responsive');
             }
+        });
+        $(document).ready(function(){
+            $('.image-popup-vertical-fit').magnificPopup({
+                type: 'image',
+                mainClass: 'mfp-with-zoom',
+                gallery:{
+                    enabled:true
+                },
+                zoom: {
+                    enabled: true,
+                    duration: 300, // duration of the effect, in milliseconds
+                    easing: 'ease-in-out', // CSS transition easing function
+                    opener: function(openerElement) {
+                        return openerElement.is('img') ? openerElement : openerElement.find('img');
+                    }
+                }
+            });
+
         });
     </script>
 @endsection

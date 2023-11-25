@@ -2,7 +2,7 @@
 
 @if ($paginator->hasPages())
 
-<ul class="pg-pagination list-unstyled">
+<ul class="pagination list-wrap">
 
 
     @if ($paginator->onFirstPage())
@@ -17,7 +17,7 @@
 
     @if($paginator->currentPage() > 3)
 
-    <li class="page-item count"><a class="page-link" href="{{ $paginator->url(1) }}"> 1</a></li>
+    <li class="page-item count active"><a class="page-link" href="{{ $paginator->url(1) }}"> 1</a></li>
     @endif
 
     @if($paginator->currentPage() > 4)
