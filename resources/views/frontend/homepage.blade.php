@@ -378,33 +378,34 @@
     @endif
 
     @if(count($data['director']) > 0)
-        <section class="testimonial-area-three pt-90">
-        <div class="container">
-            <div class="section-title mb-50 text-center tg-heading-subheading animation-style2">
-                <span class="sub-title tg-element-title">Upclose with our team</span>
-                <h2 class="title tg-element-title">Our Director Shares Their <br> Valuable Message</h2>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-lg-12 col-md-12">
-                    <div class="testimonial-active-five">
-                        @foreach($data['director'] as $index=>$director)
-                            <div class="testimonial-active-three">
-                                <div class="container">
-                                    <div class="row g-0 align-items-end">
-                                        <div class="col-37">
-                                            <div class="testimonial-img-three">
-                                                <img src="{{ asset(imagePath($director->image)) }}" alt="">
+        <section class="testimonial-area-three pt-90 pb-70">
+            <div class="container">
+                <div class="section-title mb-50 text-center tg-heading-subheading animation-style2">
+                    <span class="sub-title tg-element-title">Upclose with our team</span>
+                    <h2 class="title tg-element-title">Our Director Shares Their <br> Valuable Message</h2>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-lg-12 col-md-12">
+                        <div class="testimonial-active-five">
+                            @foreach($data['director'] as $index=>$director)
+                                <div class="testimonial-active-three">
+                                    <div class="container">
+                                        <div class="row g-0 align-items-end">
+                                            <div class="col-37">
+                                                <div class="testimonial-img-three">
+                                                    <img src="{{ asset(imagePath($director->image)) }}" alt="">
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="col-63">
-                                            <div class="testimonial-item-wrap-three" data-background="{{ asset('assets/frontend/img/bg/h3_testimonial_bg.png') }}">
-                                                <div class="testimonial-active-threes">
-                                                    <div class="testimonial-item-three">
-                                                        <div class="testimonial-content-three">
-                                                            <p>{{ $director->description ?? '' }} </p>
-                                                            <div class="testimonial-info">
-                                                                <h2 class="title">{{ $director->title ?? '' }}</h2>
-                                                                <span>{{ $director->designation ?? '' }}</span>
+                                            <div class="col-63">
+                                                <div class="testimonial-item-wrap-three" data-background="{{ asset('assets/frontend/img/bg/h3_testimonial_bg.png') }}">
+                                                    <div class="testimonial-active-threes">
+                                                        <div class="testimonial-item-three">
+                                                            <div class="testimonial-content-three">
+                                                                <p>{{ $director->description ?? '' }} </p>
+                                                                <div class="testimonial-info">
+                                                                    <h2 class="title">{{ $director->title ?? '' }}</h2>
+                                                                    <span>{{ $director->designation ?? '' }}</span>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -413,547 +414,121 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        @endforeach
+                            @endforeach
+                        </div>
                     </div>
                 </div>
             </div>
+        </section>
+    @endif
+
+    @if(count($data['testimonials'])>0)
+        <section class="testimonial-area-two testimonial-bg-two" data-background="{{asset('assets/frontend/img/bg/h2_testimonial_bg.jpg')}}">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-7">
+                        <div class="section-title mb-50 text-center tg-heading-subheading animation-style2">
+                            <span class="sub-title tg-element-title">Our Testimonials</span>
+                            <h2 class="title text-white tg-element-title">What Customers Say’s About  <br> Our Services</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-item-wrap-two">
+                    <div class="row testimonial-active-two">
+                        @foreach($data['testimonials'] as $index=>$testimonial)
+                            <div class="col-lg-6">
+                                <div class="testimonial-item-two">
+                                    <div class="testimonial-content-two">
+                                        <p>
+                                            {{ $testimonial->description }}
+                                        </p>
+                                        <div class="testimonial-avatar">
+                                            <div class="avatar-thumb">
+                                                <img src="{{ asset(imagePath($testimonial->image))}}" alt="">
+                                            </div>
+                                            <div class="avatar-info">
+                                                <h2 class="title">{{ $testimonial->title ?? '' }}</h2>
+                                                <span>{{ $testimonial->position ?? '' }}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                    <div class="testimonial-nav-two"></div>
+                </div>
+            </div>
+        </section>
+    @endif
+
+    @if($data['homepage']->grievance_title)
+        <section class="about-area-two pt-110 pb-120">
+        <div class="container">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-lg-7 col-md-9 order-0 order-lg-2">
+                    <div class="about-img-two" style="padding-left: 0">
+                        <div class="main-img">
+                            @if($data['map'])
+                                <iframe src="{{$data['map']}}" style="border:0;width: 625px;height: 620px;" allowfullscreen="" loading="lazy"></iframe>
+                            @endif
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="about-content-two">
+                        <div class="section-title mb-30 tg-heading-subheading animation-style2">
+                            <span class="sub-title tg-element-title">General Grievance</span>
+                            <h2 class="title tg-element-title">{{ $data['homepage']->grievance_title ?? '' }}</h2>
+                        </div>
+                        <p class="text-align-justify">
+                            {{ $data['homepage']->grievance_description }}
+                        </p>
+                        <a href="{{ route('frontend.contact-us') }}" class="btn transparent-btn">Get In Touch</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="about-shape-wrap">
+            <img src="{{ asset('assets/frontend/img/images/about_shape02.png') }}" alt="">
         </div>
     </section>
     @endif
 
-    <section class="testimonial-area-five">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-6 col-md-8">
-                    <div class="testimonial-img-five">
-                        <img src="assets/img/images/h5_testimonial_img.png" alt="">
-                        <img src="assets/img/images/h5_testimonial_shape01.png" alt="" class="shape-one">
-                        <img src="assets/img/images/h5_testimonial_shape02.png" alt="" class="shape-two">
-                        <img src="assets/img/images/h5_testimonial_shape03.png" alt="" class="shape-three">
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="testimonial-content-five">
-                        <div class="section-title title-three mb-50 tg-heading-subheading animation-style1">
-                            <span class="sub-title tg-element-title">Our Testimonials</span>
-                            <h2 class="title tg-element-title">What our awesome customers say</h2>
-                        </div>
-                        <div class="testimonial-item-wrap-five">
-                            <div class="testimonial-active-five">
-                                <div class="testimonial-item">
-                                    <div class="testimonial-content">
-                                        <div class="content-top">
-                                            <div class="rating">
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                            </div>
-                                            <div class="testimonial-quote">
-                                                <img src="assets/img/icons/quote.svg" alt="">
-                                            </div>
-                                        </div>
-                                        <p>“ Morem ipsum dolor sit amet, consectetur adipiscing elita florai sum dolor sit amet, consecteture.Borem ipsum dolor sit amet, consectetur.</p>
-                                        <div class="testimonial-avatar">
-                                            <div class="avatar-thumb">
-                                                <img src="assets/img/images/testi_avatar01.png" alt="">
-                                            </div>
-                                            <div class="avatar-info">
-                                                <h2 class="title">Mr.Robey Alexa</h2>
-                                                <span>CEO, Gerow Agency</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="testimonial-item">
-                                    <div class="testimonial-content">
-                                        <div class="content-top">
-                                            <div class="rating">
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                            </div>
-                                            <div class="testimonial-quote">
-                                                <img src="assets/img/icons/quote.svg" alt="">
-                                            </div>
-                                        </div>
-                                        <p>“ Morem ipsum dolor sit amet, consectetur adipiscing elita florai sum dolor sit amet, consecteture.Borem ipsum dolor sit amet, consectetur.</p>
-                                        <div class="testimonial-avatar">
-                                            <div class="avatar-thumb">
-                                                <img src="assets/img/images/testi_avatar02.png" alt="">
-                                            </div>
-                                            <div class="avatar-info">
-                                                <h2 class="title">Mr.Robey Alexa</h2>
-                                                <span>CEO, Gerow Agency</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="testimonial-nav-five"></div>
+    @if(count($data['blogs'])>0)
+        <section class="blog-post-area">
+            <div class="blog-bg"></div>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-xl-6 col-lg-8">
+                        <div class="section-title text-center mb-60 tg-heading-subheading animation-style2">
+                            <span class="sub-title tg-element-title">News & Blogs</span>
+                            <h2 class="title tg-element-title">Read Our Latest Updates</h2>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- request-area -->
-    <section class="request-area request-bg" data-background="assets/img/bg/request_bg.jpg">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-5">
-                    <div class="request-content tg-heading-subheading animation-style2">
-                        <h2 class="title tg-element-title">Let’s Request A Schedule For <br> Free Consultation</h2>
-                    </div>
-                </div>
-                <div class="col-lg-7">
-                    <div class="request-content-right">
-                        <div class="request-contact">
-                            <div class="icon">
-                                <i class="flaticon-phone-call"></i>
-                            </div>
-                            <div class="content">
-                                <span>Hotline 24/7</span>
-                                <a href="tel:0123456789">+123 8989 444</a>
-                            </div>
-                        </div>
-                        <div class="request-btn">
-                            <a href="contact.html" class="btn">Request a Schedule</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="request-shape">
-            <img src="assets/img/images/request_shape.png" alt="">
-        </div>
-    </section>
-    <!-- request-area-end -->
-
-    <!-- team-area -->
-    <section class="team-area team-bg" data-background="assets/img/bg/team_bg.jpg">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-xl-6 col-lg-8">
-                    <div class="section-title text-center mb-50 tg-heading-subheading animation-style2">
-                        <span class="sub-title tg-element-title">Skilled Team Members</span>
-                        <h2 class="title tg-element-title">Meet Our Dedicated Team</h2>
-                        <p>Ever find yourself staring at your computer screen a good consulting slogan to come to mind? Oftentimes.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-9">
-                    <div class="team-item">
-                        <div class="team-thumb">
-                            <img src="assets/img/team/team_img01.jpg" alt="">
-                            <div class="team-social">
-                                <ul class="list-wrap">
-                                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="team-content">
-                            <h2 class="title"><a href="team-details.html">Brooklyn Simmons</a></h2>
-                            <span>Finance Advisor</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-9">
-                    <div class="team-item">
-                        <div class="team-thumb">
-                            <img src="assets/img/team/team_img02.jpg" alt="">
-                            <div class="team-social">
-                                <ul class="list-wrap">
-                                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="team-content">
-                            <h2 class="title"><a href="team-details.html">Guy Hawkins</a></h2>
-                            <span>Investment Department</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-9">
-                    <div class="team-item">
-                        <div class="team-thumb">
-                            <img src="assets/img/team/team_img03.jpg" alt="">
-                            <div class="team-social">
-                                <ul class="list-wrap">
-                                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="team-content">
-                            <h2 class="title"><a href="team-details.html">Savannah Nguyen</a></h2>
-                            <span>Business Consulting</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-9">
-                    <div class="team-item">
-                        <div class="team-thumb">
-                            <img src="assets/img/team/team_img04.jpg" alt="">
-                            <div class="team-social">
-                                <ul class="list-wrap">
-                                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="team-content">
-                            <h2 class="title"><a href="team-details.html">Kristin Watson</a></h2>
-                            <span>Marketing Head</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- team-area-end -->
-
-    <!-- testimonial-area -->
-    <section class="testimonial-area testimonial-bg" data-background="assets/img/bg/testimonial_bg.jpg">
-        <div class="container">
-            <div class="row align-items-center justify-content-center">
-                <div class="col-lg-5 col-md-8">
-                    <div class="testimonial-img">
-                        <img src="assets/img/images/testimonial_img.jpg" alt="">
-                        <div class="review-wrap">
-                            <img src="assets/img/icons/rating.svg" alt="">
-                            <div class="content">
-                                <h2 class="title">15k</h2>
-                                <p>Positive <br> Review</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-7">
-                    <div class="testimonial-item-wrap">
-                        <div class="testimonial-active">
-                            <div class="testimonial-item">
-                                <div class="testimonial-content">
-                                    <div class="content-top">
-                                        <div class="rating">
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                        </div>
-                                        <div class="testimonial-quote">
-                                            <img src="assets/img/icons/quote.svg" alt="">
-                                        </div>
-                                    </div>
-                                    <p>“ Morem ipsum dolor sit amet, consectetur adipiscing elita florai sum dolor sit amet, consecteture.Borem ipsum dolor sit amet, consectetur adipiscing elita Moremsit amet.</p>
-                                    <div class="testimonial-info">
-                                        <h4 class="title">Mr.Robey Alexa</h4>
-                                        <span>CEO, Gerow Agency</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="testimonial-item">
-                                <div class="testimonial-content">
-                                    <div class="content-top">
-                                        <div class="rating">
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                        </div>
-                                        <div class="testimonial-quote">
-                                            <img src="assets/img/icons/quote.svg" alt="">
-                                        </div>
-                                    </div>
-                                    <p>“ Morem ipsum dolor sit amet, consectetur adipiscing elita florai sum dolor sit amet, consecteture.Borem ipsum dolor sit amet, elita Moremsit amet.</p>
-                                    <div class="testimonial-info">
-                                        <h4 class="title">Guy Hawkins</h4>
-                                        <span>CEO, Gerow Agency</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="testimonial-nav"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- testimonial-area-end -->
-
-    <!-- pricing-area -->
-    <section class="pricing-area">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-xl-6 col-lg-8">
-                    <div class="section-title text-center mb-60 tg-heading-subheading animation-style2">
-                        <span class="sub-title tg-element-title">Pricing Chart</span>
-                        <h2 class="title tg-element-title">Best Pricing Plane For You</h2>
-                        <p>Ever find yourself staring at your computer screen a good consulting <br> slogan to come to mind? Oftentimes.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="pricing-item-wrap">
-                <div class="pricing-tab">
-                    <span class="tab-btn monthly_tab_title">Monthly</span>
-                    <span class="pricing-tab-switcher"></span>
-                    <span class="tab-btn annual_tab_title">Yearly</span>
                 </div>
                 <div class="row justify-content-center">
-                    <div class="col-lg-4 col-md-6 col-sm-9">
-                        <div class="pricing-box">
-                            <div class="pricing-head">
-                                <h2 class="title">Basic Plan</h2>
-                                <p>Ever find yourself staring at your follow computer screen a good</p>
-                            </div>
-                            <div class="pricing-price">
-                                <h2 class="price monthly_price"><strong>$</strong>19.00<span>/month</span></h2>
-                                <h2 class="price annual_price"><strong>$</strong>119.00<span>/month</span></h2>
-                            </div>
-                            <div class="pricing-list">
-                                <ul class="list-wrap">
-                                    <li><img src="assets/img/icons/check_icon02.svg" alt="">5000 User Activities</li>
-                                    <li><img src="assets/img/icons/check_icon02.svg" alt="">Unlimited Access</li>
-                                    <li><img src="assets/img/icons/check_icon02.svg" alt="">No Hidden Charge</li>
-                                    <li><img src="assets/img/icons/check_icon02.svg" alt="">03 Time Updates</li>
-                                    <li><img src="assets/img/icons/check_icon02.svg" alt="">Figma Source File</li>
-                                    <li><img src="assets/img/icons/check_icon02.svg" alt="">Many More Facilities</li>
-                                </ul>
-                            </div>
-                            <div class="pricing-btn">
-                                <a href="contact.html" class="btn">Get The Plan Now</a>
+                    @foreach($data['blogs'] as $blog)
+                        <div class="col-lg-4 col-md-6 col-sm-10">
+                            <div class="blog-post-item">
+                                <div class="blog-post-thumb">
+                                    <a href="blog-details.html">
+                                        <img class="lazy" data-src="{{ asset(imagePath($blog->image))}}" alt=""></a>
+                                    <span class="date"><strong>{{date('d', strtotime($blog->created_at))}}</strong>{{date('M Y', strtotime($blog->created_at))}}</span>
+                                </div>
+                                <div class="blog-post-content">
+                                    <a href="{{ route('frontend.blog.show', $blog->slug) }}" class="tag">{{ $blog->blogCategory->title ?? '' }}</a>
+                                    <h2 class="title"><a href="{{ route('frontend.blog.show', $blog->slug) }}"> {{ $blog->title ?? '' }}</a></h2>
+                                    <a href="{{ route('frontend.blog.show', $blog->slug) }}" class="link-btn">Read All <i class="flaticon-right-arrow"></i></a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-9">
-                        <div class="pricing-box active">
-                            <span class="popular-tag">Popular</span>
-                            <div class="pricing-head">
-                                <h2 class="title">Standard Plan</h2>
-                                <p>Ever find yourself staring at your follow computer screen a good</p>
-                            </div>
-                            <div class="pricing-price">
-                                <h2 class="price monthly_price"><strong>$</strong>39.00<span>/month</span></h2>
-                                <h2 class="price annual_price"><strong>$</strong>329.00<span>/month</span></h2>
-                            </div>
-                            <div class="pricing-list">
-                                <ul class="list-wrap">
-                                    <li><img src="assets/img/icons/check_icon02.svg" alt="">5000 User Activities</li>
-                                    <li><img src="assets/img/icons/check_icon02.svg" alt="">Unlimited Access</li>
-                                    <li><img src="assets/img/icons/check_icon02.svg" alt="">No Hidden Charge</li>
-                                    <li><img src="assets/img/icons/check_icon02.svg" alt="">03 Time Updates</li>
-                                    <li><img src="assets/img/icons/check_icon02.svg" alt="">Figma Source File</li>
-                                    <li><img src="assets/img/icons/check_icon02.svg" alt="">Many More Facilities</li>
-                                </ul>
-                            </div>
-                            <div class="pricing-btn">
-                                <a href="contact.html" class="btn">Get The Plan Now</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-9">
-                        <div class="pricing-box">
-                            <div class="pricing-head">
-                                <h2 class="title">Business Plan</h2>
-                                <p>Ever find yourself staring at your follow computer screen a good</p>
-                            </div>
-                            <div class="pricing-price">
-                                <h2 class="price monthly_price"><strong>$</strong>99.00<span>/month</span></h2>
-                                <h2 class="price annual_price"><strong>$</strong>899.00<span>/month</span></h2>
-                            </div>
-                            <div class="pricing-list">
-                                <ul class="list-wrap">
-                                    <li><img src="assets/img/icons/check_icon02.svg" alt="">5000 User Activities</li>
-                                    <li><img src="assets/img/icons/check_icon02.svg" alt="">Unlimited Access</li>
-                                    <li><img src="assets/img/icons/check_icon02.svg" alt="">No Hidden Charge</li>
-                                    <li><img src="assets/img/icons/check_icon02.svg" alt="">03 Time Updates</li>
-                                    <li><img src="assets/img/icons/check_icon02.svg" alt="">Figma Source File</li>
-                                    <li><img src="assets/img/icons/check_icon02.svg" alt="">Many More Facilities</li>
-                                </ul>
-                            </div>
-                            <div class="pricing-btn">
-                                <a href="contact.html" class="btn">Get The Plan Now</a>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
-        </div>
-    </section>
-    <!-- pricing-area-end -->
+        </section>
+    @endif
 
-    <!-- contact-area -->
-    <section class="contact-area contact-bg" data-background="assets/img/bg/contact_bg.jpg">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-5">
-                    <div class="contact-content">
-                        <div class="section-title mb-30 tg-heading-subheading animation-style2">
-                            <span class="sub-title tg-element-title">GET IN TOUCH</span>
-                            <h2 class="title tg-element-title">We Are Connected To Help Your Business!</h2>
-                        </div>
-                        <p>Ever find yourself staring at your computer screen a good consulting slogan to come to mind? Oftentimes.</p>
-                    </div>
-                </div>
-                <div class="col-lg-7">
-                    <div class="contact-form">
-                        <form action="#">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-grp">
-                                        <input type="text" placeholder="Name *">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-grp">
-                                        <input type="email" placeholder="E-mail *">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-grp">
-                                        <input type="number" placeholder="Phone *">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-grp">
-                                        <input type="text" placeholder="Subject *">
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="form-grp">
-                                        <textarea placeholder="Comments *"></textarea>
-                                    </div>
-                                </div>
-                            </div>
-                            <button type="submit">Submit Now</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="contact-shape">
-            <img src="assets/img/images/contact_shape.png" alt="">
-        </div>
-    </section>
-    <!-- contact-area-end -->
-
-    <!-- blog-post-area -->
-    <section class="blog-post-area">
-        <div class="blog-bg" data-background="assets/img/bg/blog_bg.jpg"></div>
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-xl-6 col-lg-8">
-                    <div class="section-title text-center mb-60 tg-heading-subheading animation-style2">
-                        <span class="sub-title tg-element-title">News & Blogs</span>
-                        <h2 class="title tg-element-title">Read Our Latest Updates</h2>
-                        <p>Ever find yourself staring at your computer screen a good consulting <br> slogan to come to mind? Oftentimes.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-lg-4 col-md-6 col-sm-10">
-                    <div class="blog-post-item">
-                        <div class="blog-post-thumb">
-                            <a href="blog-details.html"><img src="assets/img/blog/blog_img01.jpg" alt=""></a>
-                            <span class="date"><strong>25</strong>Jan</span>
-                        </div>
-                        <div class="blog-post-content">
-                            <a href="blog.html" class="tag">Development</a>
-                            <h2 class="title"><a href="blog-details.html">Meet AutoManage, the best AI management tools</a></h2>
-                            <p>Everything you need to start building area atching presence for your business.</p>
-                            <a href="blog-details.html" class="link-btn">Read More <i class="flaticon-right-arrow"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-10">
-                    <div class="blog-post-item">
-                        <div class="blog-post-thumb">
-                            <a href="blog-details.html"><img src="assets/img/blog/blog_img02.jpg" alt=""></a>
-                            <span class="date"><strong>25</strong>Jan</span>
-                        </div>
-                        <div class="blog-post-content">
-                            <a href="blog.html" class="tag">Development</a>
-                            <h2 class="title"><a href="blog-details.html">Meet AutoManage, the best AI management tools</a></h2>
-                            <p>Everything you need to start building area atching presence for your business.</p>
-                            <a href="blog-details.html" class="link-btn">Read More <i class="flaticon-right-arrow"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-10">
-                    <div class="blog-post-item">
-                        <div class="blog-post-thumb">
-                            <a href="blog-details.html"><img src="assets/img/blog/blog_img03.jpg" alt=""></a>
-                            <span class="date"><strong>25</strong>Jan</span>
-                        </div>
-                        <div class="blog-post-content">
-                            <a href="blog.html" class="tag">Development</a>
-                            <h2 class="title"><a href="blog-details.html">Meet AutoManage, the best AI management tools</a></h2>
-                            <p>Everything you need to start building area atching presence for your business.</p>
-                            <a href="blog-details.html" class="link-btn">Read More <i class="flaticon-right-arrow"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- blog-post-area-end -->
-
-    <!-- brand-area -->
-    <div class="brand-aera pb-100">
-        <div class="container">
-            <div class="row brand-active">
-                <div class="col-lg-12">
-                    <div class="brand-item">
-                        <img src="assets/img/brand/brand_img01.png" alt="">
-                    </div>
-                </div>
-                <div class="col-lg-12">
-                    <div class="brand-item">
-                        <img src="assets/img/brand/brand_img02.png" alt="">
-                    </div>
-                </div>
-                <div class="col-lg-12">
-                    <div class="brand-item">
-                        <img src="assets/img/brand/brand_img03.png" alt="">
-                    </div>
-                </div>
-                <div class="col-lg-12">
-                    <div class="brand-item">
-                        <img src="assets/img/brand/brand_img04.png" alt="">
-                    </div>
-                </div>
-                <div class="col-lg-12">
-                    <div class="brand-item">
-                        <img src="assets/img/brand/brand_img05.png" alt="">
-                    </div>
-                </div>
-                <div class="col-lg-12">
-                    <div class="brand-item">
-                        <img src="assets/img/brand/brand_img03.png" alt="">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- brand-area-end -->
 @endsection
 
 @section('js')

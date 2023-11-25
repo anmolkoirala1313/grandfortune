@@ -1965,6 +1965,7 @@ label {
 .about-content-two p {
 	margin-bottom: 20px;
 	color: var(--tg-paragraph-color);
+    line-height: 1.8em;
 }
 .about-list .list-wrap {
 	display: flex;
@@ -6473,13 +6474,14 @@ label {
 	margin-bottom: 20px;
 }
 .testimonial-content-two > p {
-    font-style: italic;
+    /*font-style: italic;*/
     font-weight: 500;
-    font-size: 20px;
+    font-size: 18px;
     margin-bottom: 20px;
+    text-align: justify;
 	color: var(--tg-paragraph-color);
 	font-family: var(--tg-heading-font-family);
-	line-height: 1.5;
+	line-height: 1.6em;
 }
 .testimonial-avatar {
 	display: flex;
@@ -7265,7 +7267,8 @@ label {
 .blog-post-area {
 	position: relative;
 	z-index: 1;
-	padding: 120px 0 90px;
+	padding: 60px 0 90px;
+    background: #F8F8FA;
 }
 .blog-post-area .blog-bg {
 	background-size: cover;

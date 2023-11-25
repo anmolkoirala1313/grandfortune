@@ -456,13 +456,13 @@ $('.testimonial-active-four').slick({
 $('.testimonial-active-five').slick({
 	dots: false,
 	infinite: true,
-	speed: 1000,
+	speed: 3500,
 	autoplay: true,
 	arrows: true,
 	prevArrow: '<button type="button" class="slick-prev"><i class="flaticon-right-arrow"></i></button>',
 	nextArrow: '<button type="button" class="slick-next"><i class="flaticon-right-arrow"></i></button>',
 	appendArrows: ".testimonial-nav-five",
-	vertical: false,
+	vertical: true,
 	slidesToShow: 1,
 	slidesToScroll: 1,
 	responsive: [
