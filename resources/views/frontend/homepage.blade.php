@@ -4,7 +4,7 @@
 
 @endsection
 @section('content')
-    <!-- slider-area -->
+
     <section class="slider-area">
         <div class="slider-active">
             @foreach($data['sliders']  as $index=>$slider)
@@ -29,7 +29,6 @@
             @endforeach
         </div>
     </section>
-    <!-- slider-area-end -->
 
     @if($data['homepage']->mission)
         <section class="services-area-four">
@@ -96,7 +95,6 @@
         </section>
     @endif
 
-    <!-- counter-area -->
     <section class="counter-area-three pb-60">
         <div class="container">
             <div class="row justify-content-center">
@@ -150,7 +148,6 @@
             </div>
         </div>
     </section>
-    <!-- counter-area-end -->
 
     @if(count($data['jobs']) > 1)
         <section class="project-area-four" data-background="{{ asset('assets/frontend/img/bg/services_bg02.jpg') }}">
@@ -165,13 +162,13 @@
                     </div>
                     <div class="col-lg-6 col-md-4">
                         <div class="view-all-btn text-end mb-30">
-                            <a href="{{ route('frontend.job.index') }}" class="btn transparent-btn">View All</a>
+                            <a href="{{ route('frontend.job.index') }}" class="btn transparent-btn custom-btn">View All</a>
                         </div>
                     </div>
                 </div>
                 <div class="row justify-content-center">
                     @foreach($data['jobs'] as $index=>$job)
-                        <div class="col-lg-4 col-md-6 mt-2">
+                        <div class="col-lg-4 col-md-6 mt-3">
                             <div class="project-item">
                                 <div class="project-thumb">
                                     <a href="{{ route('frontend.job.show', $job->slug) }}">
@@ -282,148 +279,97 @@
             </div>
         </section>
     @endif
-    <!-- project-area -->
-    <section class="project-area project-bg" data-background="assets/img/bg/project_bg.jpg">
-        <div class="container">
-            <div class="row align-items-end">
-                <div class="col-lg-6">
-                    <div class="section-title mb-40 tg-heading-subheading animation-style2">
-                        <span class="sub-title tg-element-title">Case Studies</span>
-                        <h2 class="title tg-element-title">Keep Your Business Safe & Ensure High Availability.</h2>
-                    </div>
+
+    @if(count($data['homepage']->coreValueDetail))
+        <section class="features-area" data-background="{{ asset('assets/frontend/img/bg/counter_bg.jpg') }}">
+            <div class="container">
+                <div class="section-title mb-30 tg-heading-subheading animation-style2">
+                    <span class="sub-title tg-element-title">Our Unshakeable Beliefs</span>
+                    <h2 class="title tg-element-title">Our Core Guiding Values To Ensure <br/> Your Success.</h2>
                 </div>
-                <div class="col-lg-6">
-                    <div class="project-top-content">
-                        <p>Ever find yourself staring at your computer screen a good consulting slogan to come to mind? Oftentimes.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="project-item-wrap">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="swiper-container project-active">
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide">
-                                    <div class="project-item">
-                                        <div class="project-thumb">
-                                            <a href="project-details.html"><img src="assets/img/project/project_img01.jpg" alt=""></a>
+                <div class="row justify-content-center">
+                    @foreach($data['homepage']->coreValueDetail as $index=>$core_value)
+                        <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                            <div class="features-item">
+                                <div class="features-content">
+                                    <div class="content-top">
+                                        <div class="icon">
+                                            <i class="{{ core_value_icon($index) }}"></i>
                                         </div>
-                                        <div class="project-content">
-                                            <a href="project.html" class="tag">Achievment</a>
-                                            <h2 class="title"><a href="project-details.html">based on your Correct situation</a></h2>
-                                            <a href="project-details.html" class="link-arrow"><i class="flaticon-right-arrow"></i></a>
-                                        </div>
+                                        <h2 class="title">{{ $core_value->title ?? '' }}</h2>
                                     </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="project-item">
-                                        <div class="project-thumb">
-                                            <a href="project-details.html"><img src="assets/img/project/project_img02.jpg" alt=""></a>
-                                        </div>
-                                        <div class="project-content">
-                                            <a href="project.html" class="tag">Business Strategy</a>
-                                            <h2 class="title"><a href="project-details.html">Best mortgage rates guaranteed.</a></h2>
-                                            <a href="project-details.html" class="link-arrow"><i class="flaticon-right-arrow"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="project-item">
-                                        <div class="project-thumb">
-                                            <a href="project-details.html"><img src="assets/img/project/project_img03.jpg" alt=""></a>
-                                        </div>
-                                        <div class="project-content">
-                                            <a href="project.html" class="tag">Investment</a>
-                                            <h2 class="title"><a href="project-details.html">Investment Policy For New Project</a></h2>
-                                            <a href="project-details.html" class="link-arrow"><i class="flaticon-right-arrow"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="project-item">
-                                        <div class="project-thumb">
-                                            <a href="project-details.html"><img src="assets/img/project/project_img04.jpg" alt=""></a>
-                                        </div>
-                                        <div class="project-content">
-                                            <a href="project.html" class="tag">Achievment</a>
-                                            <h2 class="title"><a href="project-details.html">based on your Correct situation</a></h2>
-                                            <a href="project-details.html" class="link-arrow"><i class="flaticon-right-arrow"></i></a>
-                                        </div>
-                                    </div>
+                                    <p>{{ $core_value->description ?? '' }}</p>
                                 </div>
                             </div>
                         </div>
+                    @endforeach
+                </div>
+            </div>
+            <div class="about-shape-wrap">
+                <img class="lazy" data-src="{{ asset('assets/frontend/img/images/about_shape01.png') }}" alt="">
+                <img class="lazy" data-src="{{ asset('assets/frontend/img/images/about_shape02.png') }}" alt="">
+            </div>
+        </section>
+    @endif
+
+    @if(count($data['homepage']->recruitmentProcess))
+        <section class="features-area-three">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-xl-6 col-lg-7">
+                        <div class="section-title mb-50 text-center tg-heading-subheading animation-style2">
+                            <span class="sub-title tg-element-title">Our Dedicated Work Flow</span>
+                            <h2 class="title tg-element-title">Shedding Light On Our <br> Working Process</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="features-item-wrap-two">
+                    <div class="row justify-content-center">
+                        @foreach($data['homepage']->recruitmentProcess as $index=>$process)
+                            <div class="col-xl-3 col-lg-4 col-md-6 d-flex align-items-stretch">
+                                <div class="features-item-three">
+                                    <div class="features-icon-three icon-custom">
+                                        <span>{{ $index+1 }}</span>
+                                    </div>
+                                    <div class="features-content-three">
+                                        <h2 class="title">{{ $process->title ?? '' }}</h2>
+                                        <p>  {{ $process->description ?? '' }} </p>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-    <!-- project-area-two -->
+        </section>
+    @endif
 
     <!-- faq-area -->
     <section class="faq-area">
-        <div class="faq-bg-shape" data-background="assets/img/images/faq_shape01.png"></div>
+        <div class="faq-bg-shape" data-background="{{ asset('assets/frontend/img/images/faq_shape01.png') }}"></div>
         <div class="faq-shape-wrap">
-            <img src="assets/img/images/faq_shape02.png" alt="">
-            <img src="assets/img/images/faq_shape03.png" alt="">
+            <img class="lazy" data-src="{{ asset('assets/frontend/img/images/faq_shape02.png') }}" alt="">
+            <img class="lazy" data-src="{{ asset('assets/frontend/img/images/faq_shape03.png') }}" alt="">
         </div>
         <div class="container">
             <div class="row align-items-end justify-content-center">
                 <div class="col-lg-6 col-md-9">
                     <div class="faq-img-wrap">
-                        <img src="assets/img/images/faq_img01.jpg" alt="">
-                        <img src="assets/img/images/faq_img02.jpg" alt="" data-parallax='{"y" : 100 }'>
+                        <img class="lazy" data-src="{{ asset(imagePath($data['homepage']->why_image)) }}" alt="">
+                        @if($data['homepage']->why_video)
+                            <a href="{{ $data['homepage']->why_video }}" class="play-btn popup-video"><i class="fas fa-play"></i></a>
+                        @endif
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="faq-content">
                         <div class="section-title mb-30 tg-heading-subheading animation-style2">
-                            <span class="sub-title tg-element-title">Our Service Benifits</span>
-                            <h2 class="title tg-element-title">Keep Your Business Safe & Ensure High Availability.</h2>
+                            <span class="sub-title tg-element-title">{{ $data['homepage']->why_subtitle ?? 'Why Choose Us' }}</span>
+                            <h2 class="title tg-element-title">{{ $data['homepage']->why_title ?? '' }}</h2>
                         </div>
-                        <p>Ever find yourself staring at your computer s good consulting slogan to come to mind? Oftentimes.</p>
-                        <div class="accordion-wrap">
-                            <div class="accordion" id="accordionExample">
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header">
-                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                            Interdum et malesuada fames ac ante ipsum
-                                        </button>
-                                    </h2>
-                                    <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
-                                        <div class="accordion-body">
-                                            <p>Ever find yourself staring at your computer screen a good consulting slogan to coind yourself sta your computer screen a good consulting slogan.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header">
-                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                                data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                            Interdum et malesuada fames ac ante ipsum
-                                        </button>
-                                    </h2>
-                                    <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                                        <div class="accordion-body">
-                                            <p>Ever find yourself staring at your computer screen a good consulting slogan to coind yourself sta your computer screen a good consulting slogan.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header">
-                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                                data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                            Interdum et malesuada fames ac ante ipsum
-                                        </button>
-                                    </h2>
-                                    <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                                        <div class="accordion-body">
-                                            <p>Ever find yourself staring at your computer screen a good consulting slogan to coind yourself sta your computer screen a good consulting slogan.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <p class="text-align-justify">
+                            {{ $data['homepage']->why_description ?? '' }}
+                        </p>
                     </div>
                 </div>
             </div>

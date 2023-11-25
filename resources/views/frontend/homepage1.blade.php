@@ -118,7 +118,6 @@
         </section>
     @endif
 
-
     @if(count($data['jobs']) > 1)
         <section class="portfolio-three">
             <div class="portfolio-three__shape-1 zoominout">
@@ -203,7 +202,6 @@
             </div>
         </section>
     @endif
-
 
     @if(count( $data['clients']) > 0)
         <section class="brand-one">
