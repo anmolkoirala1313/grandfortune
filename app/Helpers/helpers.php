@@ -198,17 +198,17 @@ if (!function_exists('core_value_icon')) {
     function core_value_icon($index): string
     {
         if($index == 0){
-            $icon = 'flaticon-puzzle-piece';
+            $icon = 'flaticon-conflagration';
         }else if($index == 1){
-            $icon = 'flaticon-inspiration';
+            $icon = 'flaticon-winner';
         }else if($index == 2){
-            $icon = 'flaticon-profit';
+            $icon = 'flaticon-protection-1';
         }else if($index == 3){
-            $icon = 'flaticon-development';
-        }else if($index == 4){
-            $icon = 'flaticon-challenges';
-        }else if($index == 5){
             $icon = 'flaticon-briefcase';
+        }else if($index == 4){
+            $icon = 'flaticon-handshake';
+        }else if($index == 5){
+            $icon = 'flaticon-development';
         }else if($index == 6){
             $icon = 'flaticon-design';
         }else if($index == 7){

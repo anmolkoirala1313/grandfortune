@@ -6567,7 +6567,7 @@ label {
 .testimonial-item-wrap-three {
 	background: var(--tg-section-background);
 	border-radius: 10px;
-	padding: 100px 80px;
+	padding: 25px 35px;
 	background-size: cover;
 	background-position: center;
 	position: relative;
@@ -6581,13 +6581,13 @@ label {
 	margin-bottom: 30px;
 }
 .testimonial-content-three p {
-	font-weight: 600;
-	font-size: 20px;
-	color: var(--tg-secondary-color);
-	font-style: italic;
-	font-family: var(--tg-heading-font-family);
-	line-height: 1.5;
-	margin-bottom: 35px;
+	/*font-weight: 600;*/
+	font-size: 18px;
+    color: var(--tg-paragraph-color);
+	/*font-style: italic;*/
+	line-height: 1.8em;
+    text-align: justify;
+	margin-bottom: 30px;
 }
 .testimonial-content-three .testimonial-info .title {
 	color: var(--tg-secondary-color);
@@ -8128,7 +8128,9 @@ label {
 /* brand-two */
 .brand-item-wrap {
 	border-bottom: 1px solid #DEE4F0;
-	padding-bottom: 40px;
+    border-top: 1px solid #DEE4F0;
+    padding-top: 15px;
+    padding-bottom: 20px;
 }
 .brand-item-wrap .title {
 	font-weight: 600;

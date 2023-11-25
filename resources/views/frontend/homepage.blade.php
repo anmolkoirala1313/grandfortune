@@ -344,38 +344,163 @@
         </section>
     @endif
 
-    <!-- faq-area -->
-    <section class="faq-area">
-        <div class="faq-bg-shape" data-background="{{ asset('assets/frontend/img/images/faq_shape01.png') }}"></div>
-        <div class="faq-shape-wrap">
-            <img class="lazy" data-src="{{ asset('assets/frontend/img/images/faq_shape02.png') }}" alt="">
-            <img class="lazy" data-src="{{ asset('assets/frontend/img/images/faq_shape03.png') }}" alt="">
-        </div>
-        <div class="container">
-            <div class="row align-items-end justify-content-center">
-                <div class="col-lg-6 col-md-9">
-                    <div class="faq-img-wrap">
-                        <img class="lazy" data-src="{{ asset(imagePath($data['homepage']->why_image)) }}" alt="">
-                        @if($data['homepage']->why_video)
-                            <a href="{{ $data['homepage']->why_video }}" class="play-btn popup-video"><i class="fas fa-play"></i></a>
-                        @endif
+    @if($data['homepage']->why_title)
+        <section class="faq-area">
+            <div class="faq-bg-shape" data-background="{{ asset('assets/frontend/img/images/faq_shape01.png') }}"></div>
+            <div class="faq-shape-wrap">
+                <img class="lazy" data-src="{{ asset('assets/frontend/img/images/faq_shape02.png') }}" alt="">
+                <img class="lazy" data-src="{{ asset('assets/frontend/img/images/faq_shape03.png') }}" alt="">
+            </div>
+            <div class="container">
+                <div class="row align-items-end justify-content-center">
+                    <div class="col-lg-6 col-md-9">
+                        <div class="faq-img-wrap">
+                            <img class="lazy" data-src="{{ asset(imagePath($data['homepage']->why_image)) }}" alt="">
+                            @if($data['homepage']->why_video)
+                                <a href="{{ $data['homepage']->why_video }}" class="play-btn popup-video"><i class="fas fa-play"></i></a>
+                            @endif
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="faq-content">
+                            <div class="section-title mb-30 tg-heading-subheading animation-style2">
+                                <span class="sub-title tg-element-title">{{ $data['homepage']->why_subtitle ?? 'Why Choose Us' }}</span>
+                                <h2 class="title tg-element-title">{{ $data['homepage']->why_title ?? '' }}</h2>
+                            </div>
+                            <p class="text-align-justify">
+                                {{ $data['homepage']->why_description ?? '' }}
+                            </p>
+                        </div>
                     </div>
                 </div>
-                <div class="col-lg-6">
-                    <div class="faq-content">
-                        <div class="section-title mb-30 tg-heading-subheading animation-style2">
-                            <span class="sub-title tg-element-title">{{ $data['homepage']->why_subtitle ?? 'Why Choose Us' }}</span>
-                            <h2 class="title tg-element-title">{{ $data['homepage']->why_title ?? '' }}</h2>
-                        </div>
-                        <p class="text-align-justify">
-                            {{ $data['homepage']->why_description ?? '' }}
-                        </p>
+            </div>
+        </section>
+    @endif
+
+    @if(count($data['director']) > 0)
+        <section class="testimonial-area-three pt-90">
+        <div class="container">
+            <div class="section-title mb-50 text-center tg-heading-subheading animation-style2">
+                <span class="sub-title tg-element-title">Upclose with our team</span>
+                <h2 class="title tg-element-title">Our Director Shares Their <br> Valuable Message</h2>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-12 col-md-12">
+                    <div class="testimonial-active-five">
+                        @foreach($data['director'] as $index=>$director)
+                            <div class="testimonial-active-three">
+                                <div class="container">
+                                    <div class="row g-0 align-items-end">
+                                        <div class="col-37">
+                                            <div class="testimonial-img-three">
+                                                <img src="{{ asset(imagePath($director->image)) }}" alt="">
+                                            </div>
+                                        </div>
+                                        <div class="col-63">
+                                            <div class="testimonial-item-wrap-three" data-background="{{ asset('assets/frontend/img/bg/h3_testimonial_bg.png') }}">
+                                                <div class="testimonial-active-threes">
+                                                    <div class="testimonial-item-three">
+                                                        <div class="testimonial-content-three">
+                                                            <p>{{ $director->description ?? '' }} </p>
+                                                            <div class="testimonial-info">
+                                                                <h2 class="title">{{ $director->title ?? '' }}</h2>
+                                                                <span>{{ $director->designation ?? '' }}</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- faq-area-end -->
+    @endif
+
+    <section class="testimonial-area-five">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6 col-md-8">
+                    <div class="testimonial-img-five">
+                        <img src="assets/img/images/h5_testimonial_img.png" alt="">
+                        <img src="assets/img/images/h5_testimonial_shape01.png" alt="" class="shape-one">
+                        <img src="assets/img/images/h5_testimonial_shape02.png" alt="" class="shape-two">
+                        <img src="assets/img/images/h5_testimonial_shape03.png" alt="" class="shape-three">
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="testimonial-content-five">
+                        <div class="section-title title-three mb-50 tg-heading-subheading animation-style1">
+                            <span class="sub-title tg-element-title">Our Testimonials</span>
+                            <h2 class="title tg-element-title">What our awesome customers say</h2>
+                        </div>
+                        <div class="testimonial-item-wrap-five">
+                            <div class="testimonial-active-five">
+                                <div class="testimonial-item">
+                                    <div class="testimonial-content">
+                                        <div class="content-top">
+                                            <div class="rating">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                            </div>
+                                            <div class="testimonial-quote">
+                                                <img src="assets/img/icons/quote.svg" alt="">
+                                            </div>
+                                        </div>
+                                        <p>“ Morem ipsum dolor sit amet, consectetur adipiscing elita florai sum dolor sit amet, consecteture.Borem ipsum dolor sit amet, consectetur.</p>
+                                        <div class="testimonial-avatar">
+                                            <div class="avatar-thumb">
+                                                <img src="assets/img/images/testi_avatar01.png" alt="">
+                                            </div>
+                                            <div class="avatar-info">
+                                                <h2 class="title">Mr.Robey Alexa</h2>
+                                                <span>CEO, Gerow Agency</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="testimonial-item">
+                                    <div class="testimonial-content">
+                                        <div class="content-top">
+                                            <div class="rating">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                            </div>
+                                            <div class="testimonial-quote">
+                                                <img src="assets/img/icons/quote.svg" alt="">
+                                            </div>
+                                        </div>
+                                        <p>“ Morem ipsum dolor sit amet, consectetur adipiscing elita florai sum dolor sit amet, consecteture.Borem ipsum dolor sit amet, consectetur.</p>
+                                        <div class="testimonial-avatar">
+                                            <div class="avatar-thumb">
+                                                <img src="assets/img/images/testi_avatar02.png" alt="">
+                                            </div>
+                                            <div class="avatar-info">
+                                                <h2 class="title">Mr.Robey Alexa</h2>
+                                                <span>CEO, Gerow Agency</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="testimonial-nav-five"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- request-area -->
     <section class="request-area request-bg" data-background="assets/img/bg/request_bg.jpg">

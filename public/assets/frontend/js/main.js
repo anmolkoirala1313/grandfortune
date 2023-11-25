@@ -462,7 +462,7 @@ $('.testimonial-active-five').slick({
 	prevArrow: '<button type="button" class="slick-prev"><i class="flaticon-right-arrow"></i></button>',
 	nextArrow: '<button type="button" class="slick-next"><i class="flaticon-right-arrow"></i></button>',
 	appendArrows: ".testimonial-nav-five",
-	vertical: true,
+	vertical: false,
 	slidesToShow: 1,
 	slidesToScroll: 1,
 	responsive: [
@@ -497,6 +497,51 @@ $('.testimonial-active-five').slick({
 		},
 	]
 });
+
+    $('.director-active-five').slick({
+        dots: false,
+        infinite: true,
+        speed: 1000,
+        autoplay: true,
+        arrows: true,
+        prevArrow: '<button type="button" class="slick-prev"><i class="flaticon-right-arrow"></i></button>',
+        nextArrow: '<button type="button" class="slick-next"><i class="flaticon-right-arrow"></i></button>',
+        appendArrows: ".testimonial-nav-five",
+        vertical: true,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        responsive: [
+            {
+                breakpoint: 1200,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    infinite: true,
+                }
+            },
+            {
+                breakpoint: 992,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            },
+            {
+                breakpoint: 767,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                }
+            },
+            {
+                breakpoint: 575,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                }
+            },
+        ]
+    });
 
 
 /*=============================================
