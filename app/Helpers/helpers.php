@@ -345,13 +345,13 @@ if (!function_exists('get_flash_card_icons')) {
     function get_flash_card_icons($index): string
     {
         if ($index == 0) {
-            $icon = 'icon-icon-start-ups';
+            $icon = 'flaticon-rocket';
         } else if ($index == 1) {
-            $icon = 'icon-icon-successful-project';
+            $icon = 'flaticon-business-presentation';
         } else if ($index == 2) {
-            $icon = 'icon-icon-years-experience';
+            $icon = 'flaticon-investment';
         } else {
-            $icon = 'icon-star-1';
+            $icon = 'flaticon-challenges';
         }
 
         return $icon;

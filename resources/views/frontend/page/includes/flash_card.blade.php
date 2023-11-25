@@ -1,25 +1,28 @@
-<section class="services-page" style="background-color: #fff;">
+<section class="services-area-four">
     <div class="container">
-        <div class="section-title-three text-left">
-            <div class="section-title__tagline-box">
-                <p class="section-title__tagline">{{ $element->first()->subtitle ?? '' }}</p>
+        <div class="row align-items-end">
+            <div class="col-lg-6">
+                <div class="section-title mb-40 tg-heading-subheading animation-style2">
+                    <span class="sub-title tg-element-title">{{ $element->first()->subtitle ?? '' }}</span>
+                    <h2 class="title tg-element-title">{{ $element->first()->title ?? '' }}</h2>
+                </div>
             </div>
-            <h2 class="section-title-three__title">{{ $element->first()->title ?? '' }}</h2>
         </div>
-        <div class="row">
+        <div class="row justify-content-center">
             @foreach($element as $index=>$row)
-                <div class="col-xl-4 col-lg-6 col-md-6 d-flex align-items-stretch">
-                    <div class="services-page__single">
-                        <h3 class="services-page__title">
-                            <a>{{$row->list_title ?? ''}}</a>
-                        </h3>
-                        <div class="services-page__icon">
-                            <span class="{{ get_flash_card_icons($index) }}"></span>
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                    <div class="services-item-four">
+                        <div class="services-icon-four">
+                            <i class="{{ get_flash_card_icons($index) }}"></i>
                         </div>
-                        <p class="services-page__text text-align-justify">{{$row->list_description ?? ''}}</p>
+                        <div class="services-content-four">
+                            <h2 class="title"><a>{{$row->list_title ?? ''}}</a></h2>
+                            <p>{{$row->list_description ?? ''}}</p>
+                        </div>
                     </div>
                 </div>
             @endforeach
         </div>
     </div>
 </section>
+

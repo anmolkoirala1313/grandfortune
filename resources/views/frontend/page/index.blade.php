@@ -38,9 +38,9 @@
         @if($index == 'map_and_description' && count($element)>0)
             @include($base_route.'includes.map_and_description')
         @endif
-{{--        @if($index == 'flash_card' && count($element)>0)--}}
-{{--            @include($base_route.'includes.flash_card')--}}
-{{--        @endif--}}
+        @if($index == 'flash_card' && count($element)>0)
+            @include($base_route.'includes.flash_card')
+        @endif
         @if($index == 'gallery')
             @include($base_route.'includes.gallery')
         @endif
