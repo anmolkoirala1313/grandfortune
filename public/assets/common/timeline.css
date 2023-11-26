@@ -138,7 +138,7 @@
     transform: rotate(45deg);
 }
 .timeline .point:first-child .arrow, .timeline .point:last-child .arrow {
-    border: solid #f7f7f7;
+    border: solid #ffffff;
     border-width: 0 12px 12px 0;
     display: inline-block;
     padding: 20px;
