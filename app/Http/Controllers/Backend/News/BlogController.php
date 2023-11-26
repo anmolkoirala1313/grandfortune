@@ -54,7 +54,7 @@ class BlogController extends BackendBaseController
             $request->request->add(['key' => $this->model->changeTokey($request['title'])]);
             $request->request->add(['created_by' => auth()->user()->id ]);
             if($request->hasFile('image_input')){
-                $image_name = $this->uploadImage($request->file('image_input'),'600','400');
+                $image_name = $this->uploadImage($request->file('image_input'),'850','480');
                 $request->request->add(['image'=>$image_name]);
             }
 
@@ -80,7 +80,7 @@ class BlogController extends BackendBaseController
             $request->request->add(['updated_by' => auth()->user()->id ]);
 
             if($request->hasFile('image_input')){
-                $image_name = $this->updateImage($request->file('image_input'),$data['row']->image,'600','400');
+                $image_name = $this->updateImage($request->file('image_input'),$data['row']->image,'850','480');
                 $request->request->add(['image'=>$image_name]);
             }
 
