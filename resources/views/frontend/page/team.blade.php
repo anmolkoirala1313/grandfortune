@@ -7,7 +7,7 @@
 
     @include($module.'includes.breadcrumb',['breadcrumb_image'=> 'breadcrumb_bg.jpg'])
 
-    <section class="team-area-four pt-40 pb-90">
+    <section class="team-area team-bg" data-background="{{ asset('assets/frontend/img/bg/team_bg.jpg') }}">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-xl-6 col-lg-8">
@@ -20,33 +20,30 @@
             <div class="row justify-content-center">
                 @if(count($data['rows']))
                     @foreach($data['rows'] as $team)
-                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-10">
-                            <div class="team-item-four">
-                                <div class="team-thumb-four">
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-9">
+                            <div class="team-item">
+                                <div class="team-thumb">
                                     <img class="lazy" data-src="{{ asset(imagePath($team->image)) }}" alt="">
                                     @if(@$team->fb_link || @$team->twitter_link || @$team->instagram_link || @$team->linkedin_link)
-                                        <div class="team-social-three">
-                                            <div class="social-toggle-icon">
-                                                <i class="fas fa-share-alt"></i>
-                                            </div>
+                                        <div class="team-social">
                                             <ul class="list-wrap">
                                                 @if($team->fb_link)
                                                     <li> <a href="{{ $team->fb_link  ?? "#" }}"><span class="fab fa-facebook"></span></a></li>
                                                 @endif
                                                 @if($team->instagram_link)
-                                                     <li><a href="{{ $team->instagram_link  ?? "#" }}"><span class="fab fa-instagram"></span></a></li>
+                                                    <li><a href="{{ $team->instagram_link  ?? "#" }}"><span class="fab fa-instagram"></span></a></li>
                                                 @endif
                                                 @if($team->twitter_link)
-                                                   <li> <a href="{{ $team->twitter_link  ?? "#" }}"><span class="fab fa-twitter"></span></a></li>
+                                                    <li> <a href="{{ $team->twitter_link  ?? "#" }}"><span class="fab fa-twitter"></span></a></li>
                                                 @endif
                                                 @if($team->linkedin_link)
-                                                        <li><a href="{{ $team->linkedin_link  ?? "#" }}"><span class="fab fa-linkedin"></span></a></li>
+                                                    <li><a href="{{ $team->linkedin_link  ?? "#" }}"><span class="fab fa-linkedin"></span></a></li>
                                                 @endif
                                             </ul>
                                         </div>
                                     @endif
                                 </div>
-                                <div class="team-content-four">
+                                <div class="team-content">
                                     <h2 class="title"><a>{{$team->title ?? ''}}</a></h2>
                                     <span>{{$team->designation ?? ''}}</span>
                                 </div>
@@ -62,7 +59,6 @@
             </div>
         </div>
     </section>
-
 @endsection
 @section('js')
     <script src="{{asset('assets/common/lazyload.js')}}"></script>

@@ -1820,7 +1820,7 @@ label {
     top: 0;
     width: 100%;
     height: 100%;
-    background: #03091b91;
+    background: #03091bb3;
     opacity: .85;
     z-index: -1;
 }
@@ -1853,11 +1853,13 @@ label {
 .breadcrumb-content .breadcrumb-item {
     color: var(--tg-primary-color);
     font-weight: 500;
-    font-size: 14px;
+    font-size: 16px;
     text-transform: capitalize;
 }
 .breadcrumb-content .breadcrumb-item a {
     color: #9FA9BE;
+    color: #ffffff;
+    font-weight: 600;
 }
 .breadcrumb-content .breadcrumb-item a:hover {
     color: var(--tg-primary-color);
