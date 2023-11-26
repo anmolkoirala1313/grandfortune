@@ -20,6 +20,9 @@
         max-width: 100%;
         height: auto;
     }
+    .slick-slide {
+        height: auto!important;
+    }
 </style>
 @section('content')
 
@@ -47,12 +50,12 @@
         @if($index == 'faq' && count($element)>0)
             @include($base_route.'includes.faq')
         @endif
-{{--        @if($index == 'header_description' && count($element)>0)--}}
-{{--            @include($base_route.'includes.header_description')--}}
-{{--        @endif--}}
-{{--        @if($index == 'slider_list' && count($element)>0)--}}
-{{--            @include($base_route.'includes.slider_list')--}}
-{{--        @endif--}}
+        @if($index == 'header_description' && count($element)>0)
+            @include($base_route.'includes.header_description')
+        @endif
+        @if($index == 'slider_list' && count($element)>0)
+            @include($base_route.'includes.slider_list')
+        @endif
     @endforeach
 @endsection
 @section('js')

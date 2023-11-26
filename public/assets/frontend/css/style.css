@@ -8581,31 +8581,6 @@ label {
      text-align: justify;
  }
 
-.custom-description blockquote{
-    position: relative;
-    display: block;
-    border-radius: 4px;
-    background-color: #F7F9FA;
-    padding: 0px 50px 50px;
-}
-.custom-description blockquote:before{
-    left: -4px;
-    top: 40px;
-    position: relative;
-    display: inline-block;
-    font-size: 65px;
-    color: rgba(var(--bixola-base-rgb), .2);
-    font-family: 'icomoon' !important;
-    speak: never;
-    font-style: normal;
-    font-weight: normal;
-    font-variant: normal;
-    text-transform: none;
-    line-height: 1;
-    -webkit-font-smoothing: antialiased;
-    content: "\e90d";
-}
-
 .custom-description ul,.custom-description ol {
     padding-left: 0px;
     margin: 10px;
@@ -8622,8 +8597,8 @@ label {
     font-family: "Font Awesome 5 Free";
     position: relative;
     display: inline-block;
-    font-size: 15px;
-    color: var(--bixola-base);
+    font-size: 18px;
+    color: var(--tg-primary-color);
     font-weight: 900;
     margin-right: 10px;
 }
