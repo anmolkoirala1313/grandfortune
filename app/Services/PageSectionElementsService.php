@@ -3,8 +3,10 @@
 namespace App\Services;
 
 use App\Http\Controllers\Backend\BackendBaseController;
+use App\Models\Backend\Page\Page;
 use App\Models\Backend\Page\PageSection;
 use App\Models\Backend\Page\PageSectionElement;
+use App\Models\Backend\Page\Timeline;
 use App\Traits\ImageUpload;
 use Yajra\DataTables\DataTables;
 
@@ -183,6 +185,37 @@ class PageSectionElementsService {
                     'created_by'          => $request['created_by'],
                     'updated_by'          => $request['updated_by']
                 ]);
+            }
+
+        }
+        else if($data['section_name'] == 'timeline'){
+            $db_values   = Page::find($request['page_id'])->timelines->pluck('id');
+            $heading     = $request->input('title')[0] ?? null;
+            $subheading  = $request->input('subtitle')[0] ?? null;
+
+            foreach ($request['detail_title'] as $index=>$title){
+                //adding or updating the values
+                Timeline::updateOrCreate(
+                    [
+                        'page_id'     => $request['page_id'],
+                        'id'          => $request['detail_id'][$index]],
+                    [
+                        'heading'       => $heading,
+                        'subheading'    => $subheading,
+                        'title'         => $title,
+                        'description'   => $request['detail_description'][$index] ?? null,
+                        'status'        => true,
+                        'created_by'    => $request['updated_by'],
+                        'updated_by'    => $request['updated_by'],
+                    ]
+                );
+            }
+
+            //removing the values
+            foreach ($db_values as $id){
+                if (!in_array($id,$request['detail_id'])){
+                    Timeline::find($id)->forceDelete();
+                }
             }
 
         }

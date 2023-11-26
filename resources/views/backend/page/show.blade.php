@@ -83,6 +83,9 @@
                                         @if($value == 'gallery')
                                             @include($view_path.'includes.gallery')
                                         @endif
+                                            @if($value == 'timeline')
+                                            @include($view_path.'includes.timeline')
+                                        @endif
                                     </div>
                                 @endforeach
                             </div>

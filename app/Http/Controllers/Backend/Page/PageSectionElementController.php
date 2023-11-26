@@ -47,6 +47,7 @@ class PageSectionElementController extends BackendBaseController
         foreach ($data['row']->pageSections as $section){
             $data['section_elements'][$section->slug] = $section->pageSectionElements;
         }
+
         return view($this->loadResource($this->view_path.'show'), compact('data'));
     }
 

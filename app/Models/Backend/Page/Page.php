@@ -26,4 +26,10 @@ class Page extends BackendBaseModel
         return $this->hasMany(MenuItem::class);
     }
 
+    public function timelines()
+    {
+        return $this->hasMany(Timeline::class);
+    }
+
+
 }

@@ -1,6 +1,7 @@
 @extends('frontend.layouts.master')
 @section('title') {{ $page_title }} @endsection
 <link rel="stylesheet" href="{{ asset('assets/frontend/css/magnific-popup.css') }}" />
+<link rel="stylesheet" href="{{ asset('assets/common/timeline.css') }}" />
 <style>
     .image-dimension{
         height: 400px;
@@ -23,6 +24,10 @@
     .slick-slide {
         height: auto!important;
     }
+
+    /*.grey_light-block {*/
+    /*    background-color: #f7f7f7;*/
+    /*}*/
 </style>
 @section('content')
 
@@ -56,7 +61,140 @@
         @if($index == 'slider_list' && count($element)>0)
             @include($base_route.'includes.slider_list')
         @endif
+
     @endforeach
+    <section class="about-area-six features-area-three">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <div class="section-title section-title-three text-center mb-20 tg-heading-subheading animation-style1">
+                    <span class="sub-title tg-element-title">Our details</span>
+                    <h2 class="title tg-element-title">Comprehensive Training Timeline</h2>
+                </div>
+            </div>
+        </div>
+            <div class="jumbotron-fluid grey_light-block pt-5">
+                <div class="container">
+                    <div class="timeline body white">
+
+                        <div class="point"> </div>
+
+                        <div class="point">
+{{--                            <div class="year"> 2012 </div>--}}
+                            <div class="bocata body text-left row">
+                                <div class="col-md-12 title small bold pb-2">January</div>
+                                <div class="col-md-6 body small">Lorem Ipsum is simply dummy text of the printing and typesetting
+                                    industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an
+                                    unknown printer took a galley of type and scrambled it to make a type specimen book</div>
+                                <div class="col-md-6 body small">Constitution of the company and a basic team</div>
+                            </div>
+                            <i class="arrow"></i>
+                        </div>
+
+                        <div class="point">
+{{--                            <div class="year"> 2013 </div>--}}
+                            <div class="bocata body text-left row">
+                                <div class="col-md-6 title small bold pb-2">February</div>
+                                <div class="col-md-6 title small bold pb-2">October</div>
+
+                                <div class="col-md-6 pr-0  body small">I'm glad you liked it so much, thanks for so many likes ❤️.</div>
+                                <div class="col-md-6 pr-0  body small">Lorem Ipsum is simply dummy text of the printing and
+                                    typesetting industry.</div>
+                            </div>
+                            <i class="arrow"></i>
+                        </div>
+
+                        <div class="point">
+{{--                            <div class="year"> 2014 </div>--}}
+                            <div class="bocata body text-left row">
+                                <div class="col-md-6 title small bold pb-2">February</div>
+                                <div class="col-md-6 title small bold pb-2">October</div>
+
+                                <div class="col-md-6 pr-0  body small">Lorem Ipsum is simply dummy text of the printing and
+                                    typesetting industry.</div>
+                                <div class="col-md-6 pr-0  body small">Lorem Ipsum is simply dummy text of the printing and
+                                    typesetting industry.</div>
+                            </div>
+
+                            <div class="bocata body text-left row">
+                                <div class="col-md-6 title small bold pb-2">February</div>
+                                <div class="col-md-6 title small bold pb-2">October</div>
+
+                                <div class="col-md-6 pr-0  body small">Lorem Ipsum is simply dummy text of the printing and
+                                    typesetting industry.</div>
+                                <div class="col-md-6 pr-0  body small">Lorem Ipsum is simply dummy text of the printing and
+                                    typesetting industry.</div>
+                            </div>
+                            <i class="arrow"></i>
+                        </div>
+
+                        <div class="point">
+{{--                            <div class="year"> 2015 </div>--}}
+                            <div class="bocata body text-left row">
+                                <div class="col-md-6 title small bold pb-2">February</div>
+                                <div class="col-md-6 title small bold pb-2">October</div>
+
+                                <div class="col-md-6 pr-0  body small">Lorem Ipsum is simply dummy text of the printing and
+                                    typesetting industry.</div>
+                                <div class="col-md-6 pr-0  body small">Lorem Ipsum is simply dummy text of the printing and
+                                    typesetting industry.</div>
+                            </div>
+                            <i class="arrow"></i>
+                        </div>
+
+                        <div class="point">
+{{--                            <div class="year"> 2016 </div>--}}
+                            <div class="bocata body text-left row">
+                                <div class="col-md-12 title small bold pb-2">January</div>
+                                <div class="col-md-6 body small">Lorem Ipsum is simply dummy text of the printing and typesetting
+                                    industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an
+                                    unknown printer took a galley of type and scrambled it to make a type specimen book</div>
+                                <div class="col-md-6 body small">Constitution of the company and a basic team</div>
+                            </div>
+                            <i class="arrow"></i>
+                        </div>
+
+                        <div class="point">
+{{--                            <div class="year"> 2017 </div>--}}
+                            <div class="bocata body text-left row">
+                                <div class="col-md-6 title small bold pb-2">February</div>
+                                <div class="col-md-6 title small bold pb-2">October</div>
+
+                                <div class="col-md-6 pr-0  body small">Lorem Ipsum is simply dummy text of the printing and
+                                    typesetting industry.</div>
+                                <div class="col-md-6 pr-0  body small">Lorem Ipsum is simply dummy text of the printing and
+                                    typesetting industry.</div>
+                            </div>
+                            <i class="arrow"></i>
+                        </div>
+
+                        <div class="point">
+{{--                            <div class="year"> 2018 </div>--}}
+                            <div class="bocata little body text-left row">
+                                <div class="col-md-6 pr-0 title small bold pb-2">February</div>
+                                <div class="col-md-6 pr-0 title small bold pb-2"></div>
+                                <div class="col-md-12 pr-0  body small">Lorem Ipsum is simply dummy text of the printing and
+                                    typesetting industry.</div>
+                            </div>
+                            <i class="arrow"></i>
+                        </div>
+
+                        <div class="point">
+                            <div class="bocata little body text-left row">
+                                <div class="col-md-6 pr-0 title small bold pb-2">February</div>
+                                <div class="col-md-6 pr-0 title small bold pb-2"></div>
+                                <div class="col-md-12 pr-0  body small">Lorem Ipsum is simply dummy text of the printing and
+                                    typesetting industry.</div>
+                            </div>
+                            <i class="arrow"></i>
+                            <i class="arrow-clean"></i>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
 @endsection
 @section('js')
     <script src="{{asset('assets/common/lazyload.js')}}"></script>
