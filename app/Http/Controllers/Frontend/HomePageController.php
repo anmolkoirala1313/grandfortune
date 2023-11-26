@@ -83,7 +83,7 @@ class HomePageController extends BackendBaseController
         $this->page_title    = 'Our Team';
         $this->page          = 'Team';
         $data                = $this->getCommonData();
-        $data['rows']        = Team::active()->orderBy('order','desc')->get();
+        $data['rows']        = Team::active()->orderBy('order','desc')->paginate(12);
 
         return view($this->loadResource($this->view_path.'page.team'), compact('data'));
     }
