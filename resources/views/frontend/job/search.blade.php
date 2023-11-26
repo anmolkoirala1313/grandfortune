@@ -5,44 +5,49 @@
 
     @include($module.'includes.breadcrumb',['breadcrumb_image'=>'image-2.png'])
 
-    <section class="news-page-three news-list-three-left">
+    <section class="services-details-area pt-120 pb-120">
         <div class="container">
-            <div class="row">
-                <div class="col-xl-4 col-lg-5">
-                    @include($view_path.'includes.sidebar')
-                </div>
-                <div class="col-xl-8 col-lg-7">
-                    <div class="news-page-three__left">
-                        <h3 class="team-five__title">We found: <span class="search-text">{{ count($data['rows']) }}</span> Job{{ count($data['rows']) > 1 ?'s':'' }}</h3>
-
-                        <div class="news-page-three__content-box">
-                            <div class="row">
-                                @foreach( $data['rows']  as $index=>$row)
-                                    <div class="col-xl-6 col-lg-6 col-md-6">
-                                        <div class="portfolio-three__single">
-                                            <div class="portfolio-three__img-box">
-                                                <div class="portfolio-three__img">
-                                                    <img class="lazy" data-src="{{ asset(imagePath($row->image)) }}" alt="">
-                                                </div>
-                                            </div>
-                                            <div class="portfolio-three__content">
-                                                <p class="portfolio-three__sub-title">
-                                                    @if(@$row->end_date >= date('Y-m-d'))
-                                                        {{date('M j, Y',strtotime(@$row->start_date))}} - {{date('M j, Y',strtotime(@$row->end_date))}}
-                                                    @else
-                                                        Expired
-                                                    @endif</p>
-                                                <h3 class="portfolio-three__title"><a href="{{ route('frontend.job.show', $row->slug) }}">{{ $row->title ?? '' }}</a></h3>
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endforeach
+            <div class="row justify-content-center">
+                <div class="col-71 order-0 order-lg-2">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6">
+                            <div class="section-title-two mb-10">
+                                <span class="sub-title">We found: {{ count($data['rows']) }} Job{{ count($data['rows']) > 1 ?'s':'' }}</span>
                             </div>
                         </div>
-                        <div class="portfolio-page__pagination">
-                            {{ $data['rows']->links('vendor.pagination.default') }}
-                        </div>
                     </div>
+                    <div class="row">
+                        @foreach( $data['rows']  as $index=>$row)
+                            <div class="col-lg-6 col-md-6 mt-3">
+                                <div class="project-item">
+                                    <div class="project-thumb">
+                                        <a href="{{ route('frontend.job.show', $row->slug) }}">
+                                            <img class="lazy" data-src="{{ asset(imagePath($row->image)) }}" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="project-content">
+                                        <a href="{{ route('frontend.job.show', $row->slug) }}" class="tag">
+                                            @if(@$row->end_date >= date('Y-m-d'))
+                                                {{date('M j, Y',strtotime(@$row->start_date))}} - {{date('M j, Y',strtotime(@$row->end_date))}}
+                                            @else
+                                                Expired
+                                            @endif
+                                        </a>
+                                        <h2 class="title"><a href="{{ route('frontend.job.show', $row->slug) }}">{{ $row->title ?? '' }}</a></h2>
+                                        <a href="{{ route('frontend.job.show', $row->slug) }}" class="link-arrow"><i class="flaticon-right-arrow"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                    <div class="pagination-wrap mt-30">
+                        <nav aria-label="Page navigation example">
+                            {{ $data['rows']->links('vendor.pagination.default') }}
+                        </nav>
+                    </div>
+                </div>
+                <div class="col-29">
+                    @include($view_path.'includes.sidebar')
                 </div>
             </div>
         </div>

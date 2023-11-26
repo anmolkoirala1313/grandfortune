@@ -1,55 +1,46 @@
-<div class="sidebar sidebar--two">
-    <div class="sidebar__single sidebar__search">
-        <div class="sidebar__title-box">
-            <h3 class="sidebar__title">Search Jobs</h3>
-        </div>
+<aside class="blog-sidebar">
+    <div class="sidebar-search">
         {!! Form::open(['route' => $base_route.'search', 'method'=>'GET', 'class'=>'sidebar__search-form']) !!}
-        <input type="text" placeholder="Search Jobs" name="for" >
-        <button type="submit"><i class="icon-magnifying-glass"></i></button>
+        <input type="text" placeholder="Search Jobs . . ." name="for">
+        <button type="submit"><i class="flaticon-search"></i></button>
         {!! Form::close() !!}
     </div>
     @if(count( $data['categories']) > 0)
-        <div class="sidebar__single sidebar__category">
-        <div class="sidebar__title-box">
-            <h3 class="sidebar__title">Categories</h3>
+        <div class="blog-widget">
+            <h4 class="bw-title">Categories</h4>
+            <div class="bs-cat-list">
+                <ul class="list-wrap">
+                    @foreach($data['categories'] as $category)
+                        <li><a href="{{ route($base_route.'category',$category->slug) }}">  {{$category->title}} <span>({{$category->jobs_count}})</span></a></li>
+                    @endforeach
+                </ul>
+            </div>
         </div>
-        <ul class="sidebar__category-list list-unstyled">
-            @foreach($data['categories'] as $category)
-                <li>
-                    <a href="{{ route($base_route.'category',$category->slug) }}">
-                        {{$category->title}} ({{$category->jobs_count}})<span class="icon-right-arrow1"></span></a>
-                </li>
-            @endforeach
-        </ul>
-    </div>
     @endif
     @if(count( $data['latest']) > 0)
-
-        <div class="sidebar__single sidebar__post">
-            <div class="sidebar__title-box">
-                <h3 class="sidebar__title">Recent Demnands</h3>
-            </div>
-            <ul class="sidebar__post-list list-unstyled">
+        <div class="blog-widget">
+            <h4 class="bw-title">Recent Demands</h4>
+            <div class="rc-post-wrap">
                 @foreach($data['latest'] as $latest)
-                    <li>
-                        <div class="sidebar__post-image">
-                            <img class="lazy" data-src="{{ asset(imagePath($latest->image)) }}" alt="">
+                    <div class="rc-post-item">
+                        <div class="thumb">
+                            <a href="{{ route($module.'blog.show',$latest->slug) }}">
+                                <img class="lazy" data-src="{{ asset(imagePath($latest->image)) }}" style="height: 70px;object-fit: cover;" alt="">
+                            </a>
                         </div>
-                        <div class="sidebar__post-content">
-                            <h3 class="sidebar__post-title"><a href="{{ route($module.'blog.show',$latest->slug) }}">
-                                    {{ $latest->title }}
-                                </a></h3>
-                            <p class="sidebar__post-date"><span class="icon-time"></span>
-                                @if(@$job->end_date >= date('Y-m-d'))
-                                    {{date('M j, Y',strtotime(@$job->start_date))}} - {{date('M j, Y',strtotime(@$job->end_date))}}
+                        <div class="content">
+                            <span class="date"><i class="far fa-calendar"></i>
+                                @if(@$latest->end_date >= date('Y-m-d'))
+                                    {{date('M j, Y',strtotime(@$latest->start_date))}} - {{date('M j, Y',strtotime(@$latest->end_date))}}
                                 @else
                                     Expired
                                 @endif
-                            </p>
+                            </span>
+                            <h2 class="title"><a href="{{ route($module.'job.show',$latest->slug) }}">   {{ $latest->title }}</a></h2>
                         </div>
-                    </li>
+                    </div>
                 @endforeach
-            </ul>
+            </div>
         </div>
     @endif
-</div>
+</aside>

@@ -5253,6 +5253,8 @@ label {
 }
 .project-thumb img {
 	filter: grayscale(0);
+    height: 280px;
+    object-fit: cover;
 }
 .project-item:hover .project-thumb img {
 	filter: grayscale(100%);
@@ -5516,7 +5518,7 @@ label {
     font-weight: 700;
     font-size: 18px;
     color: var(--tg-paragraph-color);
-    width: 40%;
+    width: 65%;
     flex: 0 0 auto;
 }
 .project-details-info > .list-wrap > li.social .list-wrap {
@@ -7725,7 +7727,7 @@ label {
     display: flex;
     align-items: center;
     font-weight: 600;
-    font-size: 13px;
+    font-size: 11px;
     color: var(--tg-gray-four);
     margin-bottom: 8px;
 }

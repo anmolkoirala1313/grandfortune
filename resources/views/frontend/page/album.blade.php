@@ -5,7 +5,7 @@
 
 @section('content')
 
-    @include($module.'includes.breadcrumb',['breadcrumb_image'=> 'breadcrumb_bg.jpg'])
+    @include($module.'includes.breadcrumb',['breadcrumb_image'=> 'background_action.jpeg'])
 
     <section class="project-area-two project-bg-two" data-background="{{ asset('assets/frontend/img/bg/project_bg02.jpg') }}">
         <div class="container custom-container">

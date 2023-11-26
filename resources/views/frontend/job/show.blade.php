@@ -5,118 +5,74 @@
 
     @include($module.'includes.breadcrumb',['breadcrumb_image'=>'background_action.jpeg'])
 
-    <section class="portfolio-details">
+    <section class="project-details-area pt-120 pb-120">
         <div class="container">
             <div class="row">
-                <div class="col-xl-12">
-                    <div class="portfolio-details__img">
-                        <img class="lazy" data-src="{{ asset(imagePath($data['row']->image)) }}" alt="">
-                    </div>
-                </div>
-                <div class="portfolio-details__bottom">
-                    <div class="row">
-                        <div class="col-xl-8 col-lg-7">
-                            <div class="portfolio-details__left">
-                                <h3 class="portfolio-details__title">
-                                    {{ $data['row']->name ?? $data['row']->title ?? '' }}
-                                </h3>
-                                <div class="portfolio-details__text-1 text-align-justify custom-description">
-                                    {!!  $data['row']->description !!}
-                                </div>
-                                <div class="news-details__tag-and-social">
-                                    <div class="news-details__tag">
-                                        <span>Category:</span>
-                                        @foreach($data['row']->categories as $category)
-                                            <a href="{{ route('frontend.job.category',$category->title)}}">{{$category->title}}</a>
-                                        @endforeach
-                                    </div>
-                                    <div class="news-details__social">
-                                        <span>Share on:</span>
-                                        <a href="#"><i class="fab fa-facebook" onclick='fbShare("{{route('frontend.job.show',$data['row']->slug)}}")'></i></a>
-                                        <a href="#"><i class="fab fa-twitter" onclick='twitShare("{{route('frontend.job.show',$data['row']->slug)}}","{{ $data['row']->title }}")'></i></a>
-                                        <a href="#"><i class="fab fa-whatsapp" onclick='whatsappShare("{{route('frontend.job.show',$data['row']->slug)}}","{{ $data['row']->title }}")'></i></a>
-
-                                    </div>
+                <div class="col-12">
+                    <div class="project-details-wrap">
+                        <div class="row">
+                            <div class="col-71">
+                                <div class="project-details-thumb">
+                                    <img class="lazy" data-src="{{ asset(imagePath($data['row']->image)) }}" alt="">
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-xl-4 col-lg-5">
-                            <div class="portfolio-details__right">
-                                <div class="portfolio-details__information-box">
-                                    <h3 class="portfolio-details__information-title">Job Information</h3>
-                                    <ul class="portfolio-details__information list-unstyled">
+                            <div class="col-29">
+                                <div class="project-details-info">
+                                    <h4 class="title">Job Information</h4>
+                                    <ul class="list-wrap">
                                         <li>
-                                            <div class="icon">
-                                                <span class="icon-date11"></span>
-                                            </div>
-                                            <div class="content">
-                                                <p>Published Date:</p>
-                                                <h4>
-                                                    @if(@$data['row']->end_date >= date('Y-m-d'))
-                                                        {{date('M j, Y',strtotime(@$data['row']->start_date))}} - {{date('M j, Y',strtotime(@$data['row']->end_date))}}
-                                                    @else
-                                                        Expired
-                                                    @endif
-                                                </h4>
-                                            </div>
+                                            <span>Published Date:</span> @if(@$data['row']->end_date >= date('Y-m-d'))
+                                                {{date('M j, Y',strtotime(@$data['row']->start_date))}} - {{date('M j, Y',strtotime(@$data['row']->end_date))}}
+                                            @else
+                                                Expired
+                                            @endif
                                         </li>
                                         @if($data['row']->company)
                                             <li>
-                                                <div class="icon">
-                                                    <span class="icon-bank-building"></span>
-                                                </div>
-                                                <div class="content">
-                                                    <p>Required Number:</p>
-                                                    <h4>{{ ucfirst($data['row']->company ?? '')}}</h4>
-                                                </div>
+                                                <span>Company:</span>
+                                                {{ ucfirst($data['row']->company ?? '')}}
                                             </li>
                                         @endif
                                         @if($data['row']->required_number)
                                             <li>
-                                                <div class="icon">
-                                                    <span class="icon-list"></span>
-                                                </div>
-                                                <div class="content">
-                                                    <p>Required Number:</p>
-                                                    <h4>{{ $data['row']->required_number ?? ''}}</h4>
-                                                </div>
+                                                <span>Required Number:</span>
+                                                {{ ucfirst($data['row']->required_number ?? '')}}
                                             </li>
                                         @endif
                                         @if($data['row']->salary)
                                             <li>
-                                                <div class="icon">
-                                                    <span class="icon-money"></span>
-                                                </div>
-                                                <div class="content">
-                                                    <p>Salary:</p>
-                                                    <h4>{{ $data['row']->salary ?? '' }}</h4>
-                                                </div>
+                                                <span>Salary:</span>
+                                                {{ ucfirst($data['row']->salary ?? '')}}
                                             </li>
                                         @endif
                                         @if($data['row']->min_qualification)
                                             <li>
-                                                <div class="icon">
-                                                    <span class="icon-category"></span>
-                                                </div>
-                                                <div class="content">
-                                                    <p>Minimum Qualification:</p>
-                                                    <h4>{{ $data['row']->min_qualification  ?? ''}}</h4>
-                                                </div>
+                                                <span>Min Qualification:</span>
+                                                {{ ucfirst($data['row']->min_qualification ?? '')}}
                                             </li>
                                         @endif
-                                        @if($data['row']->formlink && $data['row']->end_date >= $today)
+                                        @if($data['row']->formlink && $data['row']->end_date >= date('Y-m-d'))
                                             <li>
-                                                <div class="icon">
-                                                    <span class="icon-location11"></span>
-                                                </div>
-                                                <div class="content">
-                                                    <p>Apply:</p>
-                                                    <h4><a href="{{$data['row']->formlink}}" target="_blank">Submit response</a></h4>
-                                                </div>
+                                                <span>Form Link:</span>
+                                                <a href="{{$data['row']->formlink}}" target="_blank">Submit response</a>
                                             </li>
                                         @endif
+                                        <li class="social">
+                                            <span>Share:</span>
+                                            <ul class="list-wrap">
+                                                <li><a href="#"><i class="fab fa-facebook" onclick='fbShare("{{route('frontend.job.show',$data['row']->slug)}}")'></i></a></li>
+                                                <li><a href="#"><i class="fab fa-twitter" onclick='twitShare("{{route('frontend.job.show',$data['row']->slug)}}","{{ $data['row']->title }}")'></i></a></li>
+                                                <li><a href="#"><i class="fab fa-whatsapp" onclick='whatsappShare("{{route('frontend.job.show',$data['row']->slug)}}","{{ $data['row']->title }}")'></i></a></li>
+                                            </ul>
+                                        </li>
                                     </ul>
                                 </div>
+                            </div>
+                        </div>
+                        <div class="project-details-content">
+                            <h2 class="title"> {{ $data['row']->name ?? $data['row']->title ?? '' }}</h2>
+                            <div class="custom-description text-align-justify">
+                                {!!  $data['row']->description !!}
                             </div>
                         </div>
                     </div>
