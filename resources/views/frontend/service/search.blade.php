@@ -5,39 +5,45 @@
 
     @include($module.'includes.breadcrumb',['breadcrumb_image'=>'image-2.png'])
 
-    <section class="services-details">
+    <section class="services-details-area pt-120 pb-120">
         <div class="container">
-            <div class="row">
-                <div class="col-xl-3 col-lg-4">
-                    @include($view_path.'includes.sidebar')
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="section-title-two mb-10">
+                        <span class="sub-title">We found: {{ count($data['rows']) }} Service{{ count($data['rows']) > 1 ?'s':'' }}</span>
+                    </div>
                 </div>
-                <div class="col-xl-9 col-lg-8">
-                    <div class="services-details__right">
-                        <h3 class="team-five__title">We found: <span class="search-text">{{ count($data['rows']) }}</span> Service{{ count($data['rows']) > 1 ?'s':'' }}</h3>
-                         @foreach( $data['rows']  as $index=>$row)
-                            <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="{{$index+1}}00ms">
-                                <div class="portfolio-one__single">
-                                    <div class="portfolio-one__img-box">
-                                        <div class="portfolio-one__img">
-                                            <img class="lazy" data-src="{{ asset(thumbnailImagePath($row->image)) }}" alt="">
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-71 order-0 order-lg-2">
+                    <div class="row">
+                        @foreach( $data['rows']  as $index=>$row)
+                            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-8">
+                                <div class="services-item-two">
+                                    <div class="services-thumb-two">
+                                        <img class="lazy" data-src="{{ asset(thumbnailImagePath($row->image)) }}" alt="">
+                                        <div class="item-shape">
+                                            <img class="lazy" data-src="{{ asset('assets/frontend/img/services/services_item_shape.png') }}" alt="">
                                         </div>
-                                        <div class="portfolio-one__content">
-                                            {{--                                        <p class="portfolio-one__sub-title">Business Audit</p>--}}
-                                            <h3 class="portfolio-one__title">
-                                                <a href="{{ route('frontend.service.show', $row->key) }}">{{ $row->title ?? '' }}</a></h3>
+                                    </div>
+                                    <div class="services-content-two">
+                                        <div class="icon">
+                                            <i class="flaticon-layers"></i>
                                         </div>
-                                        <div class="portfolio-one__arrow">
-                                            <a href="{{ route('frontend.service.show', $row->key) }}" class=""><span
-                                                    class="icon-top-right-1"></span></a>
-                                        </div>
+                                        <h2 class="title"><a href="{{ route('frontend.service.show', $row->key) }}">{{ $row->title ?? '' }}</a></h2>
                                     </div>
                                 </div>
                             </div>
                         @endforeach
-                        <div class="portfolio-page__pagination">
-                            {{ $data['rows']->links('vendor.pagination.default') }}
-                        </div>
                     </div>
+                    <div class="pagination-wrap mt-30">
+                        <nav aria-label="Page navigation example">
+                            {{ $data['rows']->links('vendor.pagination.default') }}
+                        </nav>
+                    </div>
+                </div>
+                <div class="col-29">
+                    @include($view_path.'includes.sidebar')
                 </div>
             </div>
         </div>

@@ -238,21 +238,21 @@
                 <div class="row justify-content-center">
                     @foreach($data['services'] as $index=>$service)
                         <div class="col-xl-3 col-lg-4 col-md-6 col-sm-8">
-                        <div class="services-item-two">
-                            <div class="services-thumb-two">
-                                <img class="lazy" data-src="{{ asset(thumbnailImagePath($service->image)) }}" alt="">
-                                <div class="item-shape">
-                                    <img class="lazy" data-src="{{ asset('assets/frontend/img/services/services_item_shape.png') }}" alt="">
+                            <div class="services-item-two">
+                                <div class="services-thumb-two">
+                                    <img class="lazy" data-src="{{ asset(thumbnailImagePath($service->image)) }}" alt="">
+                                    <div class="item-shape">
+                                        <img class="lazy" data-src="{{ asset('assets/frontend/img/services/services_item_shape.png') }}" alt="">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="services-content-two">
-                                <div class="icon">
-                                    <i class="flaticon-layers"></i>
+                                <div class="services-content-two">
+                                    <div class="icon">
+                                        <i class="flaticon-layers"></i>
+                                    </div>
+                                    <h2 class="title"><a href="{{ route('frontend.service.show', $service->key) }}">{{ $service->title ?? '' }}</a></h2>
                                 </div>
-                                <h2 class="title"><a href="{{ route('frontend.service.show', $service->key) }}">{{ $service->title ?? '' }}</a></h2>
                             </div>
                         </div>
-                    </div>
                     @endforeach
                 </div>
             </div>

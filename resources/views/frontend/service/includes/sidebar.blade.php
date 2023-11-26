@@ -1,48 +1,26 @@
-<div class="services-details__left">
-    <div class="sidebar__single sidebar__search service-search" style="background-color: #f7f9fa;">
-        <div class="sidebar__title-box">
-            <h3 class="sidebar__title">Search Here</h3>
-        </div>
+<aside class="services-sidebar">
+    <div class="sidebar-search">
         {!! Form::open(['route' => $base_route.'search', 'method'=>'GET', 'class'=>'sidebar__search-form']) !!}
-            <input type="text" placeholder="Search Service" name="for" style="    background-color: #ffffff;">
-            <button type="submit"><i class="icon-magnifying-glass"></i></button>
+        <input type="text" placeholder="Search Service . . ." name="for">
+        <button type="submit"><i class="flaticon-search"></i></button>
         {!! Form::close() !!}
     </div>
     @if(count( $data['latest']) > 0)
 
-        <div class="services-details__services-box">
-            <ul class="services-details__services-list list-unstyled">
+        <div class="services-cat-list services-cat-list-two mb-30">
+            <ul class="list-wrap">
                 @foreach($data['latest'] as $latest)
-                    <li>
+                    <li class="{{ $loop->first ? 'active':'' }}">
                         <a href="{{ route('frontend.service.show',$latest->key) }}">
-                            {{$latest->title ?? ''}}<span
-                                class="icon-right-arrow1"></span></a>
+                            {{$latest->title ?? ''}} <i class="flaticon-right-arrow"></i>
+                        </a>
                     </li>
                 @endforeach
             </ul>
         </div>
     @endif
-    <div class="services-details__contact">
-        <h3 class="services-details__contact-title">Contact us</h3>
-        <ul class="services-details__contact-list list-unstyled">
-            <li>
-                <div class="icon">
-                    <span class="icon-location-1"></span>
-                </div>
-                <p>{{   $data['setting']->address ?? '' }}</p>
-            </li>
-            <li>
-                <div class="icon">
-                    <span class="icon-phone"></span>
-                </div>
-                <p><a href="tel:{{ $data['setting']->phone ?? $data['setting']->mobile }}">{{ $data['setting']->phone ?? $data['setting']->mobile }}</a></p>
-            </li>
-            <li>
-                <div class="icon">
-                    <span class="icon-envelope"></span>
-                </div>
-                <p><a href="mailto:{{ $data['setting']->email }}">{{ $data['setting']->email }}</a></p>
-            </li>
-        </ul>
+    <div class="services-widget services-sidebar-contact">
+        <h4 class="title">If You Need Any Help Contact With Us</h4>
+        <a href="tel:{{ $data['setting']->phone ?? $data['setting']->mobile }}"><i class="flaticon-phone-call"></i>{{ $data['setting']->phone ?? $data['setting']->mobile }}</a>
     </div>
-</div>
+</aside>
