@@ -15,7 +15,7 @@
             <div class="card-body">
                 <div class="row">
                     <img class="img-responsive pb-4 border-bottom lazy" data-src="{{asset('assets/backend/images/pages/sections/'.$value.'.png')}}" width="100%"/>
-                    <div class="col-lg-12 mt-3">
+                    <div class="col-lg-6 mt-3">
                         <div class="mb-1">
                             <label class="form-label required">Title </label>
                             <input type="text" class="form-control" name="title[]" value="{{ $faq[0]->title ?? null}}" maxlength="35" required>
@@ -24,6 +24,15 @@
                             <input type="hidden" class="form-control" value="{{ $data['row']->id }}" name="page_id" required>
                             <div class="invalid-feedback">
                                 Please enter the basic section title.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 mt-3">
+                        <div class="mb-1">
+                            <label>Sub Title </label>
+                            <input type="text" class="form-control" maxlength="45" name="subtitle[]" value="{{ $faq[0]->subtitle ?? null}}">
+                            <div class="invalid-feedback">
+                                Please enter the basic section sub title.
                             </div>
                         </div>
                     </div>

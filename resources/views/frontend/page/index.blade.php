@@ -44,9 +44,9 @@
         @if($index == 'gallery')
             @include($base_route.'includes.gallery')
         @endif
-{{--        @if($index == 'faq' && count($element)>0)--}}
-{{--            @include($base_route.'includes.faq')--}}
-{{--        @endif--}}
+        @if($index == 'faq' && count($element)>0)
+            @include($base_route.'includes.faq')
+        @endif
 {{--        @if($index == 'header_description' && count($element)>0)--}}
 {{--            @include($base_route.'includes.header_description')--}}
 {{--        @endif--}}

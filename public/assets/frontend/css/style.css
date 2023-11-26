@@ -5689,14 +5689,30 @@ label {
 }
 .faq-content .accordion-button {
 	position: relative;
-	padding: 17px 50px 17px 30px;
-	font-weight: 700;
+    padding: 25px 50px 25px 30px;
+    font-weight: 700;
 	font-size: 18px;
 	color: var(--tg-secondary-color);
 	text-align: left;
 	background-color: var(--tg-gray-two);
 	font-family: var(--tg-heading-font-family);
 	border: 1px solid #DFDFDF;
+}
+.faq-content .accordion-button-2 {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    padding: 25px 50px 25px 30px;
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--tg-secondary-color);
+    text-align: left;
+    background-color: var(--tg-gray-two);
+    font-family: var(--tg-heading-font-family);
+    border-color: #DFDFDF;
+    box-shadow: none;
+    border: transparent;
 }
 .faq-content .accordion-button.collapsed {
 	border: transparent;
