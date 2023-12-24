@@ -774,7 +774,7 @@ function easyPieChart() {
 				rotate: 360,
 				animate: 3000,
 				trackColor: '#2A3E66',
-				barColor: '#0055FF',
+				barColor: '#f4b338',
 			});
 		}
 	});
